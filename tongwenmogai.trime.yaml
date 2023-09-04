@@ -1,0 +1,4250 @@
+# Trime custom style settings (魔改版)
+# encoding: utf-8
+
+config_version: "1.0"
+name: 同文魔改        # 方案名称
+author: EwenLai      # 作者信息
+
+# 键盘高度
+height:
+  1: &emoji 32      # 表情键盘
+  2: &emoticon 24   # 颜文字键盘
+  3: &main 48       # 主键盘
+  4: &symbol 40     # 符号键盘
+  5: &h_gap 1       # 键盘横缝大小
+  6: &v_gap 1       # 键盘竖缝大小
+  7: &tag_h 32      # 标签高度
+
+# 键盘高度
+round_corner:
+  1: &button 12    # 按键圆角半径
+  2: &candidate 12 # 候选窗口圆角
+  3: &enter 12     # 回车键圆角
+
+# 界面风格、功能开关
+style:
+  auto_caps: false # 自动句首大写: true|false|ascii
+  background_dim_amount: 0.5
+  candidate_font: han.ttf # 候选字体
+  candidate_padding: 5  # 候选项内边距
+  candidate_spacing: 0.5  # 候选间距
+  candidate_text_size: 18  # 候选字号
+  candidate_use_cursor: true # 高亮候选项
+  candidate_view_height: 24 # 候选区高度
+  color_scheme: default # 配色方案
+  comment_font: comment.ttf # 编码提示字体
+  comment_height: 14 # 编码提示区高度
+  comment_on_top: true # 编码提示在上方或右侧
+  comment_text_size: 12 # 编码提示字号
+  hanb_font: HanaMinB.ttf # 扩充字体
+  horizontal: true # 水平模式
+  horizontal_gap: *h_gap # 键水平间距
+  layout: # 悬浮窗口设置
+    position: fixed # 候选窗口位置：left|right|left_up|right_up|fixed|bottom_left|bottom_right|top_left|top_right(left、right需要Android5.0以上)
+    min_length: 4 # 候选窗口最小词长
+    max_length: 12 # 超过字数则换行
+    sticky_lines: 1 # 固顶行数
+    max_entries: 5 # 候选窗口最大词条数
+    border: 0 # 候选窗口边框宽度
+    max_width: 320 # 最大宽度，超过则自动换行
+    max_height: 300 # 最大高度
+    min_width: 0 # 最小宽度
+    min_height: 50 # 最小高度
+    margin_x: 0 # 水平边距
+    margin_y: 0 # 竖直边距
+    line_spacing: 0 # 候选词的行间距(px)
+    line_spacing_multiplier: 1 # 候选词的行间距(倍数)
+    spacing: 1 # 与预编辑或边缘的距离
+    round_corner: *candidate # 候选窗口圆角
+    alpha: 0xff # 透明度(0-255)
+    elevation: 0 # 阴影(>= Android 5.0)
+    background: none.jpeg # 颜色或者 backgrounds 目录下的图片文档名
+    movable: false # 是否可移动窗口，或仅移动一次 true|false|once
+    all_phrases: false # 显示所有长词
+  window: # 悬浮窗口组件
+    #- {start: "", move: 'ㄓ', end: ""} # 窗口移动图标
+    - { start: "", composition: "%s", end: "", letter_spacing: 0.12 } # 显示输入的编码
+    - { start: "\n", label: "%s.", candidate: "%s", comment: "%s", end: "", sep: "☁️️" } # 显示候选项
+  key_font: symbol.ttf # 键盘字体
+  key_height: *main # 键高
+  key_long_text_size: 18 # 长标签字号
+  key_text_size: 24 # 键盘字号
+  key_width: 10.0 # 键宽，占屏幕宽的百分比
+  keyboards: [.default, default, number, more_symbols, character_1, character_2, character_3, character_4, character_5, character_6, other_1, other_2, other_3, other_4, flag_1, flag_2, flag_3, flag_4, flag_5, flag_6, party_1, party_2, activity_1, activity_2, life_1, life_2, life_3, tour_1, tour_2, tour_3, tour_4, tour_5, tour_6, technology_1, technology_2, technology_3, technology_4, chinese_symbol_1, chinese_symbol_2, english_symbols, emoticon_fond, emoticon_sad, emoticon_mad, emoticon_astonished, emoticon_impotent, emoticon_happy, edit, serial_number_1, serial_number_2, subscript_1, subscript_2, special_symbol_1, special_symbol_2, special_symbol_3, special_symbol_4, special_symbol_5] # 键盘配置
+  label_text_size: 22 # 标签字号
+  label_font: label.ttf # 编标签字体
+  latin_font: latin.ttf # 西文本体
+  latin_locale: en_US # 西文语言
+  locale: zh_CN # 缺省语言 zh_TW, zh_CN, zh_HK
+  preview_font: latin.ttf # 按键提示字体
+  preview_height: 48 # 按键提示高度
+  preview_offset: -24 # 按键提示纵向偏移
+  preview_text_size: 40 # 按键提示字号
+  proximity_correction: true # 按键纠错
+  reset_ascii_mode: false # 显示键盘时重置为中文状态
+  round_corner: *button # 按键圆角半径
+  shadow_radius: 0.0 # 按键阴影半径
+  speech_opencc_config: none # 语音输入简繁转换
+  symbol_font: symbol.ttf # 符号字体
+  symbol_text_size: 10 # 符号字号
+  text_font: latin.ttf # 编码字体
+  text_size: 14 # 编码区字号
+  vertical_correction: -5 # 触摸位置校正
+  vertical_gap: *v_gap # 键盘行距
+
+fallback_colors:
+  candidate_text_color: text_color
+  comment_text_color: candidate_text_color
+  border_color: back_color
+  candidate_separator_color: border_color
+  hilited_text_color: text_color
+  hilited_back_color: back_color
+  hilited_candidate_text_color: hilited_text_color
+  hilited_candidate_back_color: hilited_back_color
+  hilited_comment_text_color: comment_text_color
+  text_back_color: back_color
+  hilited_key_back_color: hilited_candidate_back_color
+  hilited_key_text_color: hilited_candidate_text_color
+  hilited_key_symbol_color: hilited_comment_text_color
+  hilited_off_key_back_color: hilited_key_back_color
+  hilited_on_key_back_color: hilited_key_back_color
+  hilited_off_key_text_color: hilited_key_text_color
+  hilited_on_key_text_color: hilited_key_text_color
+  key_back_color: back_color
+  key_border_color: border_color
+  key_text_color: candidate_text_color
+  key_symbol_color: comment_text_color
+  keyboard_back_color: border_color
+  label_color: candidate_text_color
+  off_key_back_color: key_back_color
+  off_key_text_color: key_text_color
+  on_key_back_color: hilited_key_back_color
+  on_key_text_color: hilited_key_text_color
+  preview_back_color: key_text_color
+  preview_text_color: key_back_color
+  shadow_color: border_color
+
+# 颜色
+colors:
+  1: &color1 0xff000000
+  2: &color2 0xffffffff
+  3: &color3 0xffe1e3e7
+  4: &color4 0xffacb2c2
+  5: &color5 0xff131313
+  6: &color6 0xff3266a0
+  7: &color7 0x00
+  8: &color8 0xff838383
+
+# 配色方案
+preset_color_schemes:
+  default:
+    name: "标准配色"  # 方案名称
+    author: 风花絮 # 作者信息
+    back_color: *color2 # 候选区背景状态栏
+    candidate_separator_color: *color2 # 候选分割背景
+    candidate_text_color: *color1 # 候选文本
+    comment_text_color: *color3 # 提示
+    hilited_back_color: *color2 # 高亮编码背景
+    hilited_candidate_back_color: *color2 # 高亮候选背景
+    hilited_candidate_text_color: *color6 # 高亮候选文本
+    hilited_comment_text_color: *color1 # 高亮提示
+    hilited_key_back_color: *color6 # 高亮按键背景
+    hilited_key_symbol_color: *color2 # 高亮按键符号
+    hilited_key_text_color: *color1 # 高亮按键文本
+    hilited_off_key_back_color: *color2 # 高亮按键关闭状态背景
+    hilited_off_key_text_color: *color1 # 高亮按键关闭状态文本
+    hilited_text_color: *color1 # 高亮编码
+    key_back_color: *color2 # 按键背景
+    key_symbol_color: *color8 # 按键符号
+    key_text_color: *color1 # 按键文本
+    keyboard_back_color: *color3 # 键盘背景
+    label_color: *color6 # 标签
+    off_key_back_color: *color4  # 按键关闭状态背景
+    off_key_text_color: *color8 # 按键关闭状态文本
+    preview_back_color: *color4 # 按键提示背景
+    preview_text_color: *color6 # 按键提示文本
+    text_color: *color6 # 编码
+    text_back_color: *color2 # 编码区背景
+    bkg: *color2 # 空格键背景色
+    tkg: *color1 # 空格键文字颜色
+    benter: *color6 # 回车键背景色
+    tenter: *color2 # 回车键文字颜色
+    bgn: *color4 # 功能键背景色
+    tgn: *color2 # 功能键文字颜色
+    bbs: *color4 # 退格键背景色
+    tbs: *color2 # 退格键文字颜色
+    baoe: *color2 # aoeiu背景色
+    taoe: *color6 # aoeiu文字颜色
+    bh1: *color2 # 第一行背景色
+    th1: *color1 # 第一行文字颜色
+    bh2: *color2 # 第二行背景色
+    th2: *color1 # 第二行文字颜色
+    bh3: *color2 # 第三行背景色
+    th3: *color1 # 第三行文字颜色
+    bh4: *color2 # 第四行背景色
+    th4: *color1 # 第四行文字颜色
+
+# --------配色开始----------------#
+  yushe:
+    name: 预设/default # 方案名稱
+    author: osfans # 作者資訊
+    back_color: 0xffe4e7e9 # 候選區背景
+    border_color: 0xffc1c7ca # 邊框
+    candidate_separator_color: 0xffc1c7ca # 候選分割背景
+    candidate_text_color: 0xff5a676e # 候選文字
+    comment_text_color: 0xff7b868c # 提示
+    hilited_back_color: 0xccd3d7da # 標明編碼背景
+    hilited_candidate_back_color: 0xffd3d7da # 標明候選背景
+    hilited_candidate_text_color: 0xff000000 # 標明候選文字
+    hilited_comment_text_color: 0xff000000 # 標明提示
+    hilited_key_back_color: 0xffd3d7da # 標明按鍵背景
+    hilited_key_symbol_color: 0xff000000 # 標明按鍵符號
+    hilited_key_text_color: 0xff000000 # 標明按鍵文字
+    hilited_off_key_back_color: 0xffd3d7da # 標明按鍵關閉狀態背景
+    hilited_off_key_text_color: 0xff000000 # 標明按鍵關閉狀態文字
+    hilited_on_key_back_color: 0xffd3d7da # 標明按鍵打開狀態背景
+    hilited_on_key_text_color: 0xff000000 # 標明按鍵打開狀態文字
+    hilited_text_color: 0xff23948e # 標明編碼
+    key_back_color: 0xffeceff1 # 按鍵背景
+    key_border_color: 0xffeceff1 # 按鍵邊框
+    key_symbol_color: 0xff5f6b73 # 按鍵符號
+    key_text_color: 0xff37474f # 按鍵文字
+    keyboard_back_color: 0xffffffff # 鍵盤背景
+    label_color: 0xff000000 # 標籤
+    off_key_back_color: 0xffd3d7da # 按鍵關閉狀態背景
+    off_key_text_color: 0xff000000 # 按鍵關閉狀態文字
+    on_key_back_color: 0xff23948e # 按鍵打開狀態背景
+    on_key_text_color: 0xff37474f # 按鍵打開狀態文字
+    preview_back_color: 0x55bfbfbf # 按鍵提示背景
+    preview_text_color: 0xff23948e # 按鍵提示文字
+    shadow_color: 0xff000000 # 陰影
+    text_color: 0xff5a676e # 編碼
+    text_back_color: 0xcce4e7e9 # 編碼區背景
+    tag_color: 0x80D4ED89
+  google:
+    name: 谷歌／Google
+    author: skoj <skoj@qq.com>
+    text_color: 0xff666666
+    candidate_text_color: 0xff000000
+    back_color: 0xffFFFFFF
+    border_color: 0xffE2E2E2
+    hilited_text_color: 0xff000000
+    hilited_back_color: 0xffFFFFFF
+    hilited_candidate_text_color: 0xffFFFFFF
+    hilited_candidate_back_color: 0xff3975CE
+  so_young:
+    name: "致青春／So Young"
+    author: "五磅兔 <zcunlin@foxmail.com>"
+    text_color: 0xffd33682
+    back_color: 0xfffdf6e3
+    border_color: 0xffeee8d5
+    label_color: 0xff93a1a1
+    candidate_text_color: 0xff657b83
+    comment_text_color: 0xff268bd2
+    hilited_text_color: 0xff839496
+    hilited_back_color: 0xffeee8d5
+    hilited_candidate_text_color: 0xffeee8d5
+    hilited_comment_text_color: 0xffeee8d5
+    hilited_candidate_back_color: 0xff2aa198
+  google_plus:
+    name: "Google+"
+    author: "Patricivs <ipatrickmac@me.com>"
+    text_color: 0xffc8c9ca
+    back_color: 0xffffffff
+    border_color: 0xffdd4b39
+    label_color: 0xffc8c9ca
+    hilited_text_color: 0xffdd4b39
+    hilited_back_color: 0xffffffff
+    candidate_text_color: 0xffdd4b39
+    comment_text_color: 0xffc8c9ca
+    hilited_candidate_text_color: 0xffffffff
+    hilited_comment_text_color: 0xffffffff
+    hilited_candidate_back_color: 0xffdd4b39
+# -------配色结束------- #
+
+# 键盘布局
+preset_keyboards:
+  default:
+    author: EwenLai
+    name: 36 键默认布局
+    width: 10
+    height: 48
+    ascii_mode: 0 # 默认中文
+    keys:
+      # 第 1 行
+      - {click: 1, long_click: '!', height: 40}
+      - {click: 2, long_click: '@'}
+      - {click: 3, long_click: '#'}
+      - {click: 4, long_click: '$'}
+      - {click: 5, long_click: '%'}
+      - {click: 6, long_click: '^'}
+      - {click: 7, long_click: '&'}
+      - {click: 8, long_click: '*'}
+      - {click: 9, long_click: '('}
+      - {click: 0, long_click: ')', has_menu: DeleteCandidate}
+      # 第 2 行
+      - {click: q, long_click: Tab}
+      - {click: w, long_click: '`'}
+      - {click: e, long_click: '~'}
+      - {click: r, long_click: '|'}
+      - {click: t, long_click: Time}
+      - {click: y, long_click: redo}
+      - {click: u, long_click: '-'}
+      - {click: i, long_click: '_'}
+      - {click: o, long_click: '+'}
+      - {click: p, long_click: '='}
+      # 第 3 行
+      - {width: 5}
+      - {click: a, long_click: select_all}
+      - {click: s, long_click: '\'}
+      - {click: d, long_click: Date}
+      - {click: f, long_click: '['}
+      - {click: g, long_click: ']'}
+      - {click: h, long_click: ':'}
+      - {click: j, long_click: ';'}
+      - {click: k, long_click: '"'}
+      - {click: l, long_click: "'"}
+      - {width: 5}
+      # 第 4 行
+      - {click: Shift_L, composing: delimiter, width: 15, hilited_key_back_color: benter}
+      - {click: z, long_click: undo}
+      - {click: x, long_click: cut}
+      - {click: c, long_click: copy}
+      - {click: v, long_click: paste}
+      - {click: b, long_click: '{'}
+      - {click: n, long_click: '}'}
+      - {click: m, long_click: '/'}
+      - {click: BackSpace_F, width: 15}
+      # 第 5 行
+      - {click: Keyboard_symbol, long_click: Theme_settings, key_text_size: 14, width: 15}
+      - {click: Keyboard_number, long_click: Menu}
+      - {click: ',', label: '，', long_click: '<'}
+      - {click: space, long_click: VOICE_ASSIST, width: 30}
+      - {click: '.', label: '。', long_click: '>'}
+      - {click: Keyboard_edit, long_click: '?', key_text_size: 14}
+      - {click: Return_F, width: 15}
+
+  number:
+    author: EwenLai
+    name: 数字键盘
+    width: 16.6
+    height: 48
+    ascii_mode: 1
+    keys:
+      # 第 1 行
+      - {click: '%'}
+      - {click: '+'}
+      - {click: 1}
+      - {click: 2}
+      - {click: 3}
+      - {click: Delete}
+      # 第 2 行
+      - {click: '±'}
+      - {click: '-'}
+      - {click: 4}
+      - {click: 5}
+      - {click: 6}
+      - {click: BackSpace}
+      # 第 3 行
+      - {click: '(){Left}'}
+      - {click: '*'}
+      - {click: 7, long_click: select_all}
+      - {click: 8, long_click: copy}
+      - {click: 9, long_click: paste}
+      - {click: Return}
+      # 第 4 行
+      - {click: Keyboard_symbol}
+      - {click: '/', long_click: '\'}
+      - {click: '.'}
+      - {click: 0, long_click: cut}
+      - {click: '=', long_click: '≠'}
+      - {click: Keyboard_default, long_click: ':'}
+
+  edit:
+    ascii_mode: 0
+    author: EwenLai
+    name: 编辑键盘
+    width: 20
+    height: *symbol
+    keys:
+      # 第 1 行
+      - {click: select_all}
+      - {click: Forward}
+      - {click: Up}
+      - {click: Backward}
+      - {click: Page_Up}
+      # 第 2 行
+      - {click: cut}
+      - {click: Left}
+      - {click: Select}
+      - {click: Right}
+      - {click: Page_Down}
+      # 第 3 行
+      - {click: copy}
+      - {click: Home}
+      - {click: Down}
+      - {click: End}
+      - {click: Delete}
+      # 第 4 行
+      - {click: paste}
+      - {click: undo}
+      - {click: Tab}
+      - {click: redo}
+      - {click: BackSpace}
+      # 第 5 行
+      - {click: Keyboard_symbol}
+      - {click: '^_^'}
+      - {click: '^_^'}
+      - {click: Return}
+      - {click: Keyboard_default}
+
+  chinese_symbol_1:
+    author: EwenLai
+    name: 中文符号（1）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {click: '，'}
+      - {click: '。'}
+      - {click: '？'}
+      - {click: '！'}
+      - {click: '～'}
+      - {click: '、'}
+      - {click: '：'}
+      - {click: '＃'}
+      - {label: '更多', click: Keyboard_more_symbols, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_chinese_symbol_2, key_text_size: "14"}
+      # 第 2 行
+      - {click: '；'}
+      - {click: '％'}
+      - {click: '＊'}
+      - {click: '—'}
+      - {click: '…'}
+      - {click: '＆'}
+      - {click: '·'}
+      - {click: '＄'}
+      - {click: '￥'}
+      - {click: '（）{Left}{Keyboard_default}'}
+      # 第 3 行
+      - {click: '‘’{Left}{Keyboard_default}'}
+      - {click: '“”{Left}{Keyboard_default}'}
+      - {click: 'ˆˇ{Left}{Keyboard_default}'}
+      - {click: '〈〉{Left}{Keyboard_default}'}
+      - {click: '‹›{Left}{Keyboard_default}'}
+      - {click: '｛｝{Left}{Keyboard_default}'}
+      - {click: '『』{Left}{Keyboard_default}'}
+      - {click: '〖〗{Left}{Keyboard_default}'}
+      - {click: '《》{Left}{Keyboard_default}'}
+      - {click: '［］{Left}{Keyboard_default}'}
+      # 第 4 行
+      - {click: '〔〕{Left}{Keyboard_default}'}
+      - {click: '「」{Left}{Keyboard_default}'}
+      - {click: '【】{Left}{Keyboard_default}'}
+      - {click: '﹏'}
+      - {click: '﹋'}
+      - {click: '﹌'}
+      - {click: '︴'}
+      - {click: '﹤'}
+      - {click: '｜'}
+      - {click: '‖'}
+      # 第 5 行
+      - {click: '‐'}
+      - {click: '￣'}
+      - {click: '¯'}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  chinese_symbol_2:
+    author: EwenLai
+    name: 中文符号（2）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {click: '‰'}
+      - {click: '‱'}
+      - {click: '℉'}
+      - {click: '€'}
+      - {click: '£'}
+      - {click: '¢'}
+      - {click: '¤'}
+      - {click: '₩'}
+      - {label: '更多', click: Keyboard_more_symbols, key_text_size: "14"}
+      - {label: '上页', click: Keyboard_chinese_symbol_1, key_text_size: "14"}
+      # 第 2 行
+      - {click: '―'}
+      - {click: '﹨'}
+      - {click: '˜'}
+      - {click: '﹍'}
+      - {click: '﹎'}
+      - {click: '〜'}
+      - {click: '〰'}
+      - {click: '°'}
+      - {click: '℃'}
+      - {click: '〝〞'}
+      # 第 3 行
+      - {click: '﹙﹚{Left}{Keyboard_default}', key_text_size: "14"}
+      - {click: '﹛﹜{Left}{Keyboard_default}', key_text_size: "14"}
+      - {click: '﹤﹥{Left}{Keyboard_default}', key_text_size: "14"}
+      - {click: '〘〙{Left}{Keyboard_default}', key_text_size: "14"}
+      - {click: '︵︶{Left}{Keyboard_default}', key_text_size: "14"}
+      - {click: '︷︸{Left}{Keyboard_default}', key_text_size: "14"}
+      - {click: '︿﹀{Left}{Keyboard_default}', key_text_size: "14"}
+      - {click: '︽︾{Left}{Keyboard_default}', key_text_size: "14"}
+      - {click: '︹︺{Left}{Keyboard_default}', key_text_size: "14"}
+      - {click: '︻︼{Left}{Keyboard_default}', key_text_size: "14"}
+      # 第 4 行
+      - {click: '﹃﹄{Left}{Keyboard_default}', key_text_size: "14"}
+      - {click: '〟'}
+      - {click: '〃'}
+      - {click: '﹐'}
+      - {click: '﹒'}
+      - {click: '﹑'}
+      - {click: '﹖'}
+      - {click: '﹗'}
+      - {click: '﹘'}
+      - {click: '﹔'}
+      # 第 5 行
+      - {click: '﹕'}
+      - {click: '﹪'}
+      - {click: '﹢'}
+      - {click: '﹣'}
+      - {click: '﹦'}
+      - {click: '﹫'}
+      - {click: '﹠'}
+      - {click: '﹩'}
+      - {click: '﹡'}
+      - {click: '﹟'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  english_symbols:
+    author: EwenLai
+    name: 英文符号
+    ascii_mode: 1
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {click: '.'}
+      - {click: '@'}
+      - {click: '~'}
+      - {click: '-'}
+      - {click: ','}
+      - {click: ':'}
+      - {click: '*'}
+      - {click: '?'}
+      - {click: '!'}
+      - {click: Keyboard_more_symbols, key_text_size: "14"}
+      # 第 2 行
+      - {click: '_'}
+      - {click: '#'}
+      - {click: '/'}
+      - {click: '='}
+      - {click: '+'}
+      - {click: '﹉'}
+      - {click: '&'}
+      - {click: '^'}
+      - {click: ';'}
+      - {click: '%'}
+      # 第 3 行
+      - {click: '…'}
+      - {click: '$'}
+      - {click: '\'}
+      - {click: '(){Left}{Keyboard_default}'}
+      - {click: '<>{Left}{Keyboard_default}'}
+      - {click: '[]{Left}{Keyboard_default}'}
+      - {click: '{}{Left}{Keyboard_default}'}
+      - {click: '|'}
+      - {click: '·'}
+      - {click: '¥'}
+      # 第 4 行
+      - {click: '"'}
+      - {click: '–'}
+      - {click: "'"}
+      - {click: '€'}
+      - {click: '¡'}
+      - {click: '¿'}
+      - {click: '´'}
+      - {click: '£'}
+      - {click: '¢'}
+      - {click: '฿'}
+      # 第 5 行
+      - {click: '♀'}
+      - {click: '♂'}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  character_1:
+    author: EwenLai
+    name: 人物键盘（1）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1, key_back_color: tag_color}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_character_6, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_character_2, key_text_size: "14"}
+      # 第 2 行
+      - {click: '😀'}
+      - {click: '😁'}
+      - {click: '😂'}
+      - {click: '😃'}
+      - {click: '😄'}
+      - {click: '😅'}
+      - {click: '😆'}
+      - {click: '😉'}
+      - {click: '😊'}
+      - {click: '😋'}
+      # 第 3 行
+      - {click: '😎'}
+      - {click: '😍'}
+      - {click: '😘'}
+      - {click: '😗'}
+      - {click: '😙'}
+      - {click: '😚'}
+      - {click: '☺'}
+      - {click: '🙂'}
+      - {click: '🤗'}
+      - {click: '😇'}
+      # 第 4 行
+      - {click: '🤓'}
+      - {click: '🤔'}
+      - {click: '😐'}
+      - {click: '😑'}
+      - {click: '😶'}
+      - {click: '🙄'}
+      - {click: '😏'}
+      - {click: '😣'}
+      - {click: '😥'}
+      - {click: '😮'}
+      # 第 5 行
+      - {click: '🤐'}
+      - {click: '😯'}
+      - {click: '😪'}
+      - {click: '😫'}
+      - {click: '😴'}
+      - {click: '😌'}
+      - {click: '😛'}
+      - {click: '😜'}
+      - {click: '😝'}
+      - {click: '😒'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  character_2:
+    author: EwenLai
+    name: 人物键盘（2）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1, key_back_color: tag_color}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_character_1, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_character_3, key_text_size: "14"}
+      # 第 2 行
+      - {click: '😓'}
+      - {click: '😔'}
+      - {click: '😕'}
+      - {click: '🙃'}
+      - {click: '🤑'}
+      - {click: '😲'}
+      - {click: '😷'}
+      - {click: '🤒'}
+      - {click: '🤕'}
+      - {click: '🙁'}
+      # 第 3 行
+      - {click: '😖'}
+      - {click: '😞'}
+      - {click: '😟'}
+      - {click: '😤'}
+      - {click: '😢'}
+      - {click: '😭'}
+      - {click: '😦'}
+      - {click: '😧'}
+      - {click: '😨'}
+      - {click: '😩'}
+      # 第 4 行
+      - {click: '😬'}
+      - {click: '😰'}
+      - {click: '😱'}
+      - {click: '😳'}
+      - {click: '😵'}
+      - {click: '😡'}
+      - {click: '😠'}
+      - {click: '😈'}
+      - {click: '👿'}
+      - {click: '👹'}
+      # 第 5 行
+      - {click: '👺'}
+      - {click: '💀'}
+      - {click: '☠'}
+      - {click: '👻'}
+      - {click: '👽'}
+      - {click: '👾'}
+      - {click: '🤖'}
+      - {click: '💩'}
+      - {click: '😺'}
+      - {click: '😸'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  character_3:
+    author: EwenLai
+    name: 人物键盘（3）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1, key_back_color: tag_color}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_character_2, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_character_4, key_text_size: "14"}
+      # 第 2 行
+      - {click: '😹'}
+      - {click: '😻'}
+      - {click: '😼'}
+      - {click: '😽'}
+      - {click: '🙀'}
+      - {click: '😿'}
+      - {click: '😾'}
+      - {click: '🙈'}
+      - {click: '🙉'}
+      - {click: '🙊'}
+      # 第 3 行
+      - {click: '👦'}
+      - {click: '👧'}
+      - {click: '👨'}
+      - {click: '👩'}
+      - {click: '👴'}
+      - {click: '👵'}
+      - {click: '👶'}
+      - {click: '👱'}
+      - {click: '👮'}
+      - {click: '👲'}
+      # 第 4 行
+      - {click: '👳'}
+      - {click: '👷'}
+      - {click: '⛑'}
+      - {click: '👸'}
+      - {click: '💂'}
+      - {click: '🕵'}
+      - {click: '🎅'}
+      - {click: '👰'}
+      - {click: '👼'}
+      - {click: '💆'}
+      # 第 5 行
+      - {click: '💇'}
+      - {click: '🙍'}
+      - {click: '🙎'}
+      - {click: '🙅'}
+      - {click: '🙆'}
+      - {click: '💁'}
+      - {click: '🙋'}
+      - {click: '🙇'}
+      - {click: '🙌'}
+      - {click: '🙏'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  character_4:
+    author: EwenLai
+    name: 人物键盘（4）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1, key_back_color: tag_color}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_character_3, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_character_5, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🗣'}
+      - {click: '👤'}
+      - {click: '👥'}
+      - {click: '🚶'}
+      - {click: '🏃'}
+      - {click: '👯'}
+      - {click: '💃'}
+      - {click: '🕴'}
+      - {click: '👫'}
+      - {click: '👬'}
+      # 第 3 行
+      - {click: '👭'}
+      - {click: '💏'}
+      - {click: '👩‍❤‍💋‍👨'}
+      - {click: '👨‍❤‍💋‍👨'}
+      - {click: '👩‍❤‍💋‍👩'}
+      - {click: '💑'}
+      - {click: '👩‍❤‍👨'}
+      - {click: '👨‍❤‍👨'}
+      - {click: '👩‍❤‍👩'}
+      - {click: '👪'}
+      # 第 4 行
+      - {click: '👨‍👩‍👦'}
+      - {click: '👨‍👩‍👧'}
+      - {click: '👨‍👩‍👧‍👦'}
+      - {click: 👨‍👩‍👦‍👦}
+      - {click: '👨‍👩‍👧‍👧'}
+      - {click: '👨‍👨‍👦'}
+      - {click: '👨‍👨‍👧'}
+      - {click: '👨‍👨‍👧‍👦'}
+      - {click: '👨‍👨‍👦‍👦'}
+      - {click: '👨‍👨‍👧‍👧'}
+      # 第 5 行
+      - {click: '👩‍👩‍👦'}
+      - {click: '👩‍👩‍👧'}
+      - {click: '👩‍👩‍👧‍👦'}
+      - {click: '👩‍👩‍👦‍👦'}
+      - {click: '👩‍👩‍👧‍👧'}
+      - {click: '💪'}
+      - {click: '👈'}
+      - {click: '👉'}
+      - {click: '☝'}
+      - {click: '👆'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  character_5:
+    author: EwenLai
+    name: 人物键盘（5）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1, key_back_color: tag_color}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_character_4, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_character_6, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🖕'}
+      - {click: '👇'}
+      - {click: '✌'}
+      - {click: '🖖'}
+      - {click: '🤘'}
+      - {click: '🖐'}
+      - {click: '✋'}
+      - {click: '👌'}
+      - {click: '👍'}
+      - {click: '👎'}
+      # 第 3 行
+      - {click: '✊'}
+      - {click: '👊'}
+      - {click: '👋'}
+      - {click: '👏'}
+      - {click: '👐'}
+      - {click: '✍'}
+      - {click: '💅'}
+      - {click: '👂'}
+      - {click: '👃'}
+      - {click: '👣'}
+      # 第 4 行
+      - {click: '👀'}
+      - {click: '👁'}
+      - {click: '👁‍🗨'}
+      - {click: '👅'}
+      - {click: '👄'}
+      - {click: '💋'}
+      - {click: '💘'}
+      - {click: '❤'}
+      - {click: '💓'}
+      - {click: '💔'}
+      # 第 5 行
+      - {click: '💕'}
+      - {click: '💖'}
+      - {click: '💗'}
+      - {click: '💙'}
+      - {click: '💚'}
+      - {click: '💛'}
+      - {click: '💜'}
+      - {click: '💝'}
+      - {click: '💞'}
+      - {click: '💟'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  character_6:
+    author: EwenLai
+    name: 人物键盘（6）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1, key_back_color: tag_color}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_character_5, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_character_1, key_text_size: "14"}
+      # 第 2 行
+      - {click: '❣'}
+      - {click: '💌'}
+      - {click: '💤'}
+      - {click: '💢'}
+      - {click: '💣'}
+      - {click: '💥'}
+      - {click: '💦'}
+      - {click: '💨'}
+      - {click: '💫'}
+      - {click: '💬'}
+      # 第 3 行
+      - {click: '🗨'}
+      - {click: '🗯'}
+      - {click: '💭'}
+      - {click: '🕳'}
+      - {click: '👓'}
+      - {click: '🕶'}
+      - {click: '👔'}
+      - {click: '👕'}
+      - {click: '👖'}
+      - {click: '👗'}
+      # 第 4 行
+      - {click: '👘'}
+      - {click: '👙'}
+      - {click: '👚'}
+      - {click: '👛'}
+      - {click: '👜'}
+      - {click: '👝'}
+      - {click: '🛍'}
+      - {click: '🎒'}
+      - {click: '👞'}
+      - {click: '👟'}
+      # 第 5 行
+      - {click: '👠'}
+      - {click: '👡'}
+      - {click: '👢'}
+      - {click: '👑'}
+      - {click: '👒'}
+      - {click: '🎩'}
+      - {click: '🎓'}
+      - {click: '📿'}
+      - {click: '💄'}
+      - {click: '💍'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  life_1:
+    author: EwenLai
+    name: 生命键盘（1）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1, key_back_color: tag_color}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_life_3, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_life_2, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🐵'}
+      - {click: '🐒'}
+      - {click: '🐶'}
+      - {click: '🐕'}
+      - {click: '🐩'}
+      - {click: '🐺'}
+      - {click: '🐱'}
+      - {click: '🐈'}
+      - {click: '🦁'}
+      - {click: '🐯'}
+      # 第 3 行
+      - {click: '🐅'}
+      - {click: '🐆'}
+      - {click: '🐴'}
+      - {click: '🐎'}
+      - {click: '🦄'}
+      - {click: '🐮'}
+      - {click: '🐂'}
+      - {click: '🐃'}
+      - {click: '🐄'}
+      - {click: '🐷'}
+      # 第 4 行
+      - {click: '🐖'}
+      - {click: '🐗'}
+      - {click: '🐽'}
+      - {click: '🐏'}
+      - {click: '🐑'}
+      - {click: '🐐'}
+      - {click: '🐪'}
+      - {click: '🐫'}
+      - {click: '🐘'}
+      - {click: '🐭'}
+      # 第 5 行
+      - {click: '🐁'}
+      - {click: '🐀'}
+      - {click: '🐹'}
+      - {click: '🐰'}
+      - {click: '🐇'}
+      - {click: '🐿'}
+      - {click: '🐻'}
+      - {click: '🐨'}
+      - {click: '🐼'}
+      - {click: '🐾'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  life_2:
+    author: EwenLai
+    name: 生命键盘（2）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1, key_back_color: tag_color}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_life_1, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_life_3, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🦃'}
+      - {click: '🐔'}
+      - {click: '🐓'}
+      - {click: '🐣'}
+      - {click: '🐤'}
+      - {click: '🐥'}
+      - {click: '🐦'}
+      - {click: '🐧'}
+      - {click: '🕊'}
+      - {click: '🐸'}
+      # 第 3 行
+      - {click: '🐊'}
+      - {click: '🐢'}
+      - {click: '🐍'}
+      - {click: '🐲'}
+      - {click: '🐉'}
+      - {click: '🐳'}
+      - {click: '🐋'}
+      - {click: '🐬'}
+      - {click: '🐟'}
+      - {click: '🐠'}
+      # 第 4 行
+      - {click: '🐡'}
+      - {click: '🐙'}
+      - {click: '🐚'}
+      - {click: '🦀'}
+      - {click: '🐌'}
+      - {click: '🐛'}
+      - {click: '🐜'}
+      - {click: '🐝'}
+      - {click: '🐞'}
+      - {click: '🕷'}
+      # 第 5 行
+      - {click: '🕸'}
+      - {click: '🦂'}
+      - {click: '💐'}
+      - {click: '🌸'}
+      - {click: '💮'}
+      - {click: '🏵'}
+      - {click: '🌹'}
+      - {click: '🌺'}
+      - {click: '🌻'}
+      - {click: '🌼'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  life_3:
+    author: EwenLai
+    name: 生命键盘（3）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1, key_back_color: tag_color}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_life_2, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_life_1, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🌷'}
+      - {click: '🌱'}
+      - {click: '🌲'}
+      - {click: '🌳'}
+      - {click: '🌴'}
+      - {click: '🌵'}
+      - {click: '🌾'}
+      - {click: '🌿'}
+      - {click: '☘'}
+      - {click: '🍀'}
+      # 第 3 行
+      - {click: '🍁'}
+      - {click: '🍂'}
+      - {click: '🍃'}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 4 行
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 5 行
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  party_1:
+    author: EwenLai
+    name: 聚会键盘（1）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1, key_back_color: tag_color}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_party_2, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_party_2, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🍇'}
+      - {click: '🍈'}
+      - {click: '🍉'}
+      - {click: '🍊'}
+      - {click: '🍋'}
+      - {click: '🍌'}
+      - {click: '🍍'}
+      - {click: '🍎'}
+      - {click: '🍏'}
+      - {click: '🍐'}
+      # 第 3 行
+      - {click: '🍑'}
+      - {click: '🍒'}
+      - {click: '🍓'}
+      - {click: '🍅'}
+      - {click: '🍆'}
+      - {click: '🌽'}
+      - {click: '🌶'}
+      - {click: '🍄'}
+      - {click: '🌰'}
+      - {click: '🍞'}
+      # 第 4 行
+      - {click: '🧀'}
+      - {click: '🍖'}
+      - {click: '🍗'}
+      - {click: '🍔'}
+      - {click: '🍟'}
+      - {click: '🍕'}
+      - {click: '🌭'}
+      - {click: '🌮'}
+      - {click: '🌯'}
+      - {click: '🍳'}
+      # 第 5 行
+      - {click: '🍲'}
+      - {click: '🍿'}
+      - {click: '🍱'}
+      - {click: '🍘'}
+      - {click: '🍙'}
+      - {click: '🍚'}
+      - {click: '🍛'}
+      - {click: '🍜'}
+      - {click: '🍝'}
+      - {click: '🍠'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  party_2:
+    author: EwenLai
+    name: 聚会键盘（2）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1, key_back_color: tag_color}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_party_1, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_party_1, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🍢'}
+      - {click: '🍣'}
+      - {click: '🍤'}
+      - {click: '🍥'}
+      - {click: '🍡'}
+      - {click: '🍦'}
+      - {click: '🍧'}
+      - {click: '🍨'}
+      - {click: '🍩'}
+      - {click: '🍪'}
+      # 第 3 行
+      - {click: '🎂'}
+      - {click: '🍰'}
+      - {click: '🍫'}
+      - {click: '🍬'}
+      - {click: '🍭'}
+      - {click: '🍮'}
+      - {click: '🍯'}
+      - {click: '🍼'}
+      - {click: '☕'}
+      - {click: '🍵'}
+      # 第 4 行
+      - {click: '🍶'}
+      - {click: '🍾'}
+      - {click: '🍷'}
+      - {click: '🍸'}
+      - {click: '🍹'}
+      - {click: '🍺'}
+      - {click: '🍻'}
+      - {click: '🍽'}
+      - {click: '🍴'}
+      - {click: '🔪'}
+      # 第 5 行
+      - {click: '🏺'}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  tour_1:
+    author: EwenLai
+    name: 旅行键盘（1）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1, key_back_color: tag_color}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_tour_6, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_tour_2, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🌍'}
+      - {click: '🌎'}
+      - {click: '🌏'}
+      - {click: '🌐'}
+      - {click: '🗺'}
+      - {click: '🗾'}
+      - {click: '🏔'}
+      - {click: '⛰'}
+      - {click: '🌋'}
+      - {click: '🗻'}
+      # 第 3 行
+      - {click: '🏕'}
+      - {click: '🏖'}
+      - {click: '🏜'}
+      - {click: '🏝'}
+      - {click: '🏞'}
+      - {click: '🏟'}
+      - {click: '🏛'}
+      - {click: '🏗'}
+      - {click: '🏘'}
+      - {click: '🏙'}
+      # 第 4 行
+      - {click: '🏚'}
+      - {click: '🏠'}
+      - {click: '🏡'}
+      - {click: '🏢'}
+      - {click: '🏣'}
+      - {click: '🏤'}
+      - {click: '🏥'}
+      - {click: '🏦'}
+      - {click: '🏨'}
+      - {click: '🏩'}
+      # 第 5 行
+      - {click: '🏪'}
+      - {click: '🏫'}
+      - {click: '🏬'}
+      - {click: '🏭'}
+      - {click: '🏯'}
+      - {click: '🏰'}
+      - {click: '💒'}
+      - {click: '🗼'}
+      - {click: '🗽'}
+      - {click: '⛪'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  tour_2:
+    author: EwenLai
+    name: 旅行键盘（2）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1, key_back_color: tag_color}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_tour_1, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_tour_3, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🕌'}
+      - {click: '🕍'}
+      - {click: '⛩'}
+      - {click: '🕋'}
+      - {click: '⛲'}
+      - {click: '⛺'}
+      - {click: '🌁'}
+      - {click: '🌃'}
+      - {click: '🌄'}
+      - {click: '🌅'}
+      # 第 3 行
+      - {click: '🌆'}
+      - {click: '🌇'}
+      - {click: '🌉'}
+      - {click: '♨'}
+      - {click: '🌌'}
+      - {click: '🎠'}
+      - {click: '🎡'}
+      - {click: '🎢'}
+      - {click: '💈'}
+      - {click: '🎪'}
+      # 第 4 行
+      - {click: '🎭'}
+      - {click: '🖼'}
+      - {click: '🎨'}
+      - {click: '🎰'}
+      - {click: '🚂'}
+      - {click: '🚃'}
+      - {click: '🚄'}
+      - {click: '🚅'}
+      - {click: '🚆'}
+      - {click: '🚇'}
+      # 第 5 行
+      - {click: '🚈'}
+      - {click: '🚉'}
+      - {click: '🚊'}
+      - {click: '🚝'}
+      - {click: '🚞'}
+      - {click: '🚋'}
+      - {click: '🚌'}
+      - {click: '🚍'}
+      - {click: '🚎'}
+      - {click: '🚏'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  tour_3:
+    author: EwenLai
+    name: 旅行键盘（3）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1, key_back_color: tag_color}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_tour_2, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_tour_4, key_text_size: "14"}
+      - {click: '🚐'}
+      - {click: '🚑'}
+      - {click: '🚒'}
+      - {click: '🚓'}
+      - {click: '🚔'}
+      - {click: '🚕'}
+      - {click: '🚖'}
+      - {click: '🚗'}
+      - {click: '🚘'}
+      - {click: '🚙'}
+      - {click: '🚚'}
+      - {click: '🚛'}
+      - {click: '🚜'}
+      - {click: '🚲'}
+      - {click: '⛽'}
+      - {click: '🛣'}
+      - {click: '🛤'}
+      - {click: '🚨'}
+      - {click: '🚥'}
+      - {click: '🚦'}
+      - {click: '🚧'}
+      - {click: '⚓'}
+      - {click: '⛵'}
+      - {click: '🚣'}
+      - {click: '🚤'}
+      - {click: '🛳'}
+      - {click: '⛴'}
+      - {click: '🛥'}
+      - {click: '🚢'}
+      - {click: '✈'}
+      - {click: '🛩'}
+      - {click: '🛫'}
+      - {click: '🛬'}
+      - {click: '💺'}
+      - {click: '🚁'}
+      - {click: '🚟'}
+      - {click: '🚠'}
+      - {click: '🚡'}
+      - {click: '🚀'}
+      - {click: '🛰'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  tour_4:
+    author: EwenLai
+    name: 旅行键盘（4）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1, key_back_color: tag_color}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_tour_3, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_tour_5, key_text_size: "14"}
+      - {click: '🛎'}
+      - {click: '🚪'}
+      - {click: '🛌'}
+      - {click: '🛏'}
+      - {click: '🛋'}
+      - {click: '🚽'}
+      - {click: '🚿'}
+      - {click: '🛀'}
+      - {click: '🛁'}
+      - {click: '⌛'}
+      - {click: '⏳'}
+      - {click: '⌚'}
+      - {click: '⏰'}
+      - {click: '⏲'}
+      - {click: '🕰'}
+      - {click: '🕛'}
+      - {click: '🕧'}
+      - {click: '🕐'}
+      - {click: '🕜'}
+      - {click: '🕑'}
+      - {click: '🕝'}
+      - {click: '🕒'}
+      - {click: '🕞'}
+      - {click: '🕓'}
+      - {click: '🕟'}
+      - {click: '🕔'}
+      - {click: '🕠'}
+      - {click: '🕕'}
+      - {click: '🕡'}
+      - {click: '🕖'}
+      - {click: '🕢'}
+      - {click: '🕗'}
+      - {click: '🕣'}
+      - {click: '🕘'}
+      - {click: '🕤'}
+      - {click: '🕙'}
+      - {click: '🕥'}
+      - {click: '🕚'}
+      - {click: '🕦'}
+      - {click: '🌑'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  tour_5:
+    author: EwenLai
+    name: 旅行键盘（5）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1, key_back_color: tag_color}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_tour_4, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_tour_6, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🌒'}
+      - {click: '🌓'}
+      - {click: '🌔'}
+      - {click: '🌕'}
+      - {click: '🌖'}
+      - {click: '🌗'}
+      - {click: '🌘'}
+      - {click: '🌙'}
+      - {click: '🌚'}
+      - {click: '🌛'}
+      # 第 3 行
+      - {click: '🌜'}
+      - {click: '🌡'}
+      - {click: '☀'}
+      - {click: '🌝'}
+      - {click: '🌞'}
+      - {click: '⭐'}
+      - {click: '🌟'}
+      - {click: '🌠'}
+      - {click: '☁'}
+      - {click: '⛅'}
+      # 第 4 行
+      - {click: '⛈'}
+      - {click: '🌤'}
+      - {click: '🌥'}
+      - {click: '🌦'}
+      - {click: '🌧'}
+      - {click: '🌨'}
+      - {click: '🌩'}
+      - {click: '🌪'}
+      - {click: '🌫'}
+      - {click: '🌬'}
+      # 第 5 行
+      - {click: '🌀'}
+      - {click: '🌈'}
+      - {click: '🌂'}
+      - {click: '☂'}
+      - {click: '☔'}
+      - {click: '⛱'}
+      - {click: '⚡'}
+      - {click: '❄'}
+      - {click: '☃'}
+      - {click: '⛄'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  tour_6:
+    author: EwenLai
+    name: 旅行键盘（6）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1, key_back_color: tag_color}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_tour_5, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_tour_1, key_text_size: "14"}
+      # 第 2 行
+      - {click: '☄'}
+      - {click: '🔥'}
+      - {click: '💧'}
+      - {click: '🌊'}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 3 行
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 4 行
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 5 行
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  activity_1:
+    author: EwenLai
+    name: 活动键盘（1）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1, key_back_color: tag_color}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_activity_2, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_activity_2, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🎃'}
+      - {click: '🎄'}
+      - {click: '🎆'}
+      - {click: '🎇'}
+      - {click: '✨'}
+      - {click: '🎈'}
+      - {click: '🎉'}
+      - {click: '🎊'}
+      - {click: '🎋'}
+      - {click: '🎍'}
+      # 第 3 行
+      - {click: '🎎'}
+      - {click: '🎏'}
+      - {click: '🎐'}
+      - {click: '🎑'}
+      - {click: '🎀'}
+      - {click: '🎁'}
+      - {click: '🎗'}
+      - {click: '🎟'}
+      - {click: '🎫'}
+      - {click: '🎖'}
+      # 第 4 行
+      - {click: '🏆'}
+      - {click: '🏅'}
+      - {click: '⚽'}
+      - {click: '⚾'}
+      - {click: '🏀'}
+      - {click: '🏐'}
+      - {click: '🏈'}
+      - {click: '🏉'}
+      - {click: '🎾'}
+      - {click: '🎱'}
+      # 第 5 行
+      - {click: '🎳'}
+      - {click: '🏏'}
+      - {click: '🏑'}
+      - {click: '🏒'}
+      - {click: '🏓'}
+      - {click: '🏸'}
+      - {click: '⛳'}
+      - {click: '🏌'}
+      - {click: '⛸'}
+      - {click: '🎣'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  activity_2:
+    author: EwenLai
+    name: 活动键盘（2）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1, key_back_color: tag_color}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_activity_1, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_activity_1, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🎽'}
+      - {click: '🎿'}
+      - {click: '⛷'}
+      - {click: '🏂'}
+      - {click: '🏄'}
+      - {click: '🏇'}
+      - {click: '🏊'}
+      - {click: '⛹'}
+      - {click: '🏋'}
+      - {click: '🚴'}
+      # 第 3 行
+      - {click: '🚵'}
+      - {click: '🏎'}
+      - {click: '🏍'}
+      - {click: '🎯'}
+      - {click: '🎮'}
+      - {click: '🕹'}
+      - {click: '🎲'}
+      - {click: '♠'}
+      - {click: '♥'}
+      - {click: '♦'}
+      # 第 4 行
+      - {click: '♣'}
+      - {click: '🃏'}
+      - {click: '🀄'}
+      - {click: '🎴'}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 5 行
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  technology_1:
+    author: EwenLai
+    name: 科技键盘（1）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1, key_back_color: tag_color}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_technology_5, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_technology_2, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🔇'}
+      - {click: '🔈'}
+      - {click: '🔉'}
+      - {click: '🔊'}
+      - {click: '📢'}
+      - {click: '📣'}
+      - {click: '📯'}
+      - {click: '🔔'}
+      - {click: '🔕'}
+      - {click: '🎼'}
+      # 第 3 行
+      - {click: '🎵'}
+      - {click: '🎶'}
+      - {click: '🎙'}
+      - {click: '🎚'}
+      - {click: '🎛'}
+      - {click: '🎤'}
+      - {click: '🎧'}
+      - {click: '📻'}
+      - {click: '🎷'}
+      - {click: '🎸'}
+      # 第 4 行
+      - {click: '🎹'}
+      - {click: '🎺'}
+      - {click: '🎻'}
+      - {click: '📱'}
+      - {click: '📲'}
+      - {click: '☎'}
+      - {click: '📞'}
+      - {click: '📟'}
+      - {click: '📠'}
+      - {click: '🔋'}
+      # 第 5 行
+      - {click: '🔌'}
+      - {click: '💻'}
+      - {click: '🖥'}
+      - {click: '🖨'}
+      - {click: '⌨'}
+      - {click: '🖱'}
+      - {click: '🖲'}
+      - {click: '💽'}
+      - {click: '💾'}
+      - {click: '💿'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  technology_2:
+    author: EwenLai
+    name: 科技键盘（2）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1, height: 34}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1, key_back_color: tag_color}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_technology_1, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_technology_3, key_text_size: "14"}
+      # 第 2 行
+      - {click: '📀'}
+      - {click: '🎥'}
+      - {click: '🎞'}
+      - {click: '📽'}
+      - {click: '🎬'}
+      - {click: '📺'}
+      - {click: '📷'}
+      - {click: '📸'}
+      - {click: '📹'}
+      - {click: '📼'}
+      # 第 3 行
+      - {click: '🔍'}
+      - {click: '🔎'}
+      - {click: '🔬'}
+      - {click: '🔭'}
+      - {click: '📡'}
+      - {click: '🕯'}
+      - {click: '💡'}
+      - {click: '🔦'}
+      - {click: '🏮'}
+      - {click: '📔'}
+      # 第 4 行
+      - {click: '📕'}
+      - {click: '📖'}
+      - {click: '📗'}
+      - {click: '📘'}
+      - {click: '📙'}
+      - {click: '📚'}
+      - {click: '📓'}
+      - {click: '📒'}
+      - {click: '📃'}
+      - {click: '📜'}
+      # 第 5 行
+      - {click: '📄'}
+      - {click: '📰'}
+      - {click: '🗞'}
+      - {click: '📑'}
+      - {click: '🔖'}
+      - {click: '🏷'}
+      - {click: '💰'}
+      - {click: '💴'}
+      - {click: '💵'}
+      - {click: '💶'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  technology_3:
+    author: EwenLai
+    name: 科技键盘（3）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1, key_back_color: tag_color}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_technology_2, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_technology_4, key_text_size: "14"}
+      # 第 2 行
+      - {click: '💷'}
+      - {click: '💸'}
+      - {click: '💳'}
+      - {click: '💹'}
+      - {click: '💱'}
+      - {click: '💲'}
+      - {click: '✉'}
+      - {click: '📧'}
+      - {click: '📨'}
+      - {click: '📩'}
+      # 第 3 行
+      - {click: '📤'}
+      - {click: '📥'}
+      - {click: '📦'}
+      - {click: '📫'}
+      - {click: '📪'}
+      - {click: '📬'}
+      - {click: '📭'}
+      - {click: '📮'}
+      - {click: '🗳'}
+      - {click: '✏'}
+      # 第 4 行
+      - {click: '✒'}
+      - {click: '🖋'}
+      - {click: '🖊'}
+      - {click: '🖌'}
+      - {click: '🖍'}
+      - {click: '📝'}
+      - {click: '💼'}
+      - {click: '📁'}
+      - {click: '📂'}
+      - {click: '🗂'}
+      # 第 5 行
+      - {click: '📅'}
+      - {click: '📆'}
+      - {click: '🗒'}
+      - {click: '🗓'}
+      - {click: '📇'}
+      - {click: '📈'}
+      - {click: '📉'}
+      - {click: '📊'}
+      - {click: '📋'}
+      - {click: '📌'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  technology_4:
+    author: EwenLai
+    name: 科技键盘（4）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1, key_back_color: tag_color}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_technology_3, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_technology_5, key_text_size: "14"}
+      # 第 2 行
+      - {click: '📍'}
+      - {click: '📎'}
+      - {click: '🖇'}
+      - {click: '📏'}
+      - {click: '📐'}
+      - {click: '✂'}
+      - {click: '🗃'}
+      - {click: '🗄'}
+      - {click: '🗑'}
+      - {click: '🔒'}
+      # 第 3 行
+      - {click: '🔓'}
+      - {click: '🔏'}
+      - {click: '🔐'}
+      - {click: '🔑'}
+      - {click: '🗝'}
+      - {click: '🔨'}
+      - {click: '⛏'}
+      - {click: '⚒'}
+      - {click: '🛠'}
+      - {click: '🗡'}
+      # 第 4 行
+      - {click: '⚔'}
+      - {click: '🔫'}
+      - {click: '🏹'}
+      - {click: '🛡'}
+      - {click: '🔧'}
+      - {click: '🔩'}
+      - {click: '⚙'}
+      - {click: '🗜'}
+      - {click: '⚗'}
+      - {click: '⚖'}
+      # 第 5 行
+      - {click: '🔗'}
+      - {click: '⛓'}
+      - {click: '💉'}
+      - {click: '💊'}
+      - {click: '🏁'}
+      - {click: '🏳'}
+      - {click: '🏴'}
+      - {click: '🚩'}
+      - {click: '🎌'}
+      - {click: '🚬'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  technology_5:
+    author: EwenLai
+    name: 科技键盘（5）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1, key_back_color: tag_color}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_technology_4, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_technology_1, key_text_size: "14"}
+      # 第 2 行
+      - {click: '⚰'}
+      - {click: '⚱'}
+      - {click: '🗿'}
+      - {click: '🛢'}
+      - {click: '🔮'}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 3 行
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 4 行
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 5 行
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  other_1:
+    author: EwenLai
+    name: 其他键盘（1）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1, key_back_color: tag_color}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_other_4, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_other_2, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🏧'}
+      - {click: '🚮'}
+      - {click: '🚰'}
+      - {click: '♿'}
+      - {click: '🚹'}
+      - {click: '🚺'}
+      - {click: '🚻'}
+      - {click: '🚼'}
+      - {click: '🚾'}
+      - {click: '🛂'}
+      # 第 3 行
+      - {click: '🛃'}
+      - {click: '🛄'}
+      - {click: '🛅'}
+      - {click: '⚠'}
+      - {click: '🚸'}
+      - {click: '⛔'}
+      - {click: '🚫'}
+      - {click: '🚳'}
+      - {click: '🚭'}
+      - {click: '🚯'}
+      # 第 4 行
+      - {click: '🚱'}
+      - {click: '🚷'}
+      - {click: '☢'}
+      - {click: '☣'}
+      - {click: '⬆'}
+      - {click: '↗'}
+      - {click: '➡'}
+      - {click: '↘'}
+      - {click: '⬇'}
+      - {click: '↙'}
+      # 第 5 行
+      - {click: '⬅'}
+      - {click: '↖'}
+      - {click: '↕'}
+      - {click: '↔'}
+      - {click: '↩'}
+      - {click: '↪'}
+      - {click: '⤴'}
+      - {click: '⤵'}
+      - {click: '🔃'}
+      - {click: '🔄'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  other_2:
+    author: EwenLai
+    name: 其他键盘（2）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1, key_back_color: tag_color}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_other_1, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_other_3, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🔙'}
+      - {click: '🔚'}
+      - {click: '🔛'}
+      - {click: '🔜'}
+      - {click: '🔝'}
+      - {click: '🛐'}
+      - {click: '⚛'}
+      - {click: '🕉'}
+      - {click: '✡'}
+      - {click: '☸'}
+      # 第 3 行
+      - {click: '☯'}
+      - {click: '✝'}
+      - {click: '☦'}
+      - {click: '☪'}
+      - {click: '☮'}
+      - {click: '🕎'}
+      - {click: '🔯'}
+      - {click: '♻'}
+      - {click: '📛'}
+      - {click: '⚜'}
+      # 第 4 行
+      - {click: '🔰'}
+      - {click: '🔱'}
+      - {click: '⭕'}
+      - {click: '✅'}
+      - {click: '☑'}
+      - {click: '✔'}
+      - {click: '✖'}
+      - {click: '❌'}
+      - {click: '❎'}
+      - {click: '➕'}
+      # 第 5 行
+      - {click: '➖'}
+      - {click: '➗'}
+      - {click: '➰'}
+      - {click: '➿'}
+      - {click: '〽'}
+      - {click: '✳'}
+      - {click: '✴'}
+      - {click: '❇'}
+      - {click: '‼'}
+      - {click: '⁉'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  other_3:
+    author: EwenLai
+    name: 其他键盘（3）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1, key_back_color: tag_color}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_other_2, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_other_4, key_text_size: "14"}
+      # 第 2 行
+      - {click: '❓'}
+      - {click: '❔'}
+      - {click: '❕'}
+      - {click: '❗'}
+      - {click: '〰'}
+      - {click: '©'}
+      - {click: '®'}
+      - {click: '™'}
+      - {click: '♈'}
+      - {click: '♉'}
+      # 第 3 行
+      - {click: '♊'}
+      - {click: '♋'}
+      - {click: '♌'}
+      - {click: '♍'}
+      - {click: '♎'}
+      - {click: '♏'}
+      - {click: '♐'}
+      - {click: '♑'}
+      - {click: '♒'}
+      - {click: '♓'}
+      # 第 4 行
+      - {click: '⛎'}
+      - {click: '🔀'}
+      - {click: '🔁'}
+      - {click: '🔂'}
+      - {click: '▶'}
+      - {click: '⏩'}
+      - {click: '⏭'}
+      - {click: '⏯'}
+      - {click: '◀'}
+      - {click: '⏪'}
+      # 第 5 行
+      - {click: '⏮'}
+      - {click: '🔼'}
+      - {click: '⏫'}
+      - {click: '🔽'}
+      - {click: '⏬'}
+      - {click: '⏸'}
+      - {click: '⏹'}
+      - {click: '⏺'}
+      - {click: '⏏'}
+      - {click: '🎦'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  other_4:
+    author: EwenLai
+    name: 其他键盘（4）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1, key_back_color: tag_color}
+      - {label: '🇨🇳', click: Keyboard_flag_1}
+      - {label: '上页', click: Keyboard_other_3, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_other_1, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🔅'}
+      - {click: '🔆'}
+      - {click: '📶'}
+      - {click: '📵'}
+      - {click: '📳'}
+      - {click: '📴'}
+      - {click: '# ⃣'}
+      - {click: '*⃣'}
+      - {click: '0⃣'}
+      - {click: '1⃣'}
+      # 第 3 行
+      - {click: '2⃣'}
+      - {click: '3⃣'}
+      - {click: '4⃣'}
+      - {click: '5⃣'}
+      - {click: '6⃣'}
+      - {click: '7⃣'}
+      - {click: '8⃣'}
+      - {click: '9⃣'}
+      - {click: '🔟'}
+      - {click: '💯'}
+      # 第 4 行
+      - {click: '🔞'}
+      - {click: '🔠'}
+      - {click: '🔡'}
+      - {click: '🔢'}
+      - {click: '🔺'}
+      - {click: '🔻'}
+      - {click: '💠'}
+      - {click: '🔘'}
+      - {click: '🔲'}
+      - {click: '🔳'}
+      # 第 5 行
+      - {click: '⚪'}
+      - {click: '⚫'}
+      - {click: '🔴'}
+      - {click: '🔵'}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  flag_1:
+    author: EwenLai
+    name: 旗帜键盘（1）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1, key_back_color: tag_color}
+      - {label: '上页', click: Keyboard_flag_6, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_flag_2, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🇦🇩'}
+      - {click: '🇦🇪'}
+      - {click: '🇦🇫'}
+      - {click: '🇦🇬'}
+      - {click: '🇦🇮'}
+      - {click: '🇦🇱'}
+      - {click: '🇦🇲'}
+      - {click: '🇦🇴'}
+      - {click: '🇦🇷'}
+      - {click: '🇦🇸'}
+      # 第 3 行
+      - {click: '🇦🇹'}
+      - {click: '🇦🇺'}
+      - {click: '🇦🇼'}
+      - {click: '🇦🇽'}
+      - {click: '🇦🇿'}
+      - {click: '🇧🇦'}
+      - {click: '🇧🇧'}
+      - {click: '🇧🇩'}
+      - {click: '🇧🇪'}
+      - {click: '🇧🇫'}
+      # 第 4 行
+      - {click: '🇧🇬'}
+      - {click: '🇧🇭'}
+      - {click: '🇧🇮'}
+      - {click: '🇧🇯'}
+      - {click: '🇧🇲'}
+      - {click: '🇧🇳'}
+      - {click: '🇧🇴'}
+      - {click: '🇧🇷'}
+      - {click: '🇧🇸'}
+      - {click: '🇧🇹'}
+      # 第 5 行
+      - {click: '🇧🇼'}
+      - {click: '🇧🇾'}
+      - {click: '🇧🇿'}
+      - {click: '🇨🇦'}
+      - {click: '🇨🇨'}
+      - {click: '🇨🇩'}
+      - {click: '🇨🇫'}
+      - {click: '🇨🇬'}
+      - {click: '🇨🇭'}
+      - {click: '🇨🇮'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  flag_2:
+    author: EwenLai
+    name: 旗帜键盘（2）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1, key_back_color: tag_color}
+      - {label: '上页', click: Keyboard_flag_1, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_flag_3, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🇨🇰'}
+      - {click: '🇨🇱'}
+      - {click: '🇨🇲'}
+      - {click: '🇨🇳'}
+      - {click: '🇨🇴'}
+      - {click: '🇨🇷'}
+      - {click: '🇨🇺'}
+      - {click: '🇨🇻'}
+      - {click: '🇨🇼'}
+      - {click: '🇨🇽'}
+      # 第 3 行
+      - {click: '🇨🇾'}
+      - {click: '🇨🇿'}
+      - {click: '🇩🇪'}
+      - {click: '🇩🇯'}
+      - {click: '🇩🇰'}
+      - {click: '🇩🇲'}
+      - {click: '🇩🇴'}
+      - {click: '🇩🇿'}
+      - {click: '🇪🇨'}
+      - {click: '🇪🇪'}
+      # 第 4 行
+      - {click: '🇪🇬'}
+      - {click: '🇪🇷'}
+      - {click: '🇪🇸'}
+      - {click: '🇪🇹'}
+      - {click: '🇪🇺'}
+      - {click: '🇫🇮'}
+      - {click: '🇫🇯'}
+      - {click: '🇫🇲'}
+      - {click: '🇫🇴'}
+      - {click: '🇫🇷'}
+      # 第 5 行
+      - {click: '🇬🇦'}
+      - {click: '🇬🇧'}
+      - {click: '🇬🇩'}
+      - {click: '🇬🇪'}
+      - {click: '🇬🇬'}
+      - {click: '🇬🇭'}
+      - {click: '🇬🇮'}
+      - {click: '🇬🇱'}
+      - {click: '🇬🇲'}
+      - {click: '🇬🇳'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  flag_3:
+    author: EwenLai
+    name: 旗帜键盘（3）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1, key_back_color: tag_color}
+      - {label: '上页', click: Keyboard_flag_2, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_flag_4, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🇬🇶'}
+      - {click: '🇬🇷'}
+      - {click: '🇬🇹'}
+      - {click: '🇬🇺'}
+      - {click: '🇬🇼'}
+      - {click: '🇬🇾'}
+      - {click: '🇭🇰'}
+      - {click: '🇭🇳'}
+      - {click: '🇭🇷'}
+      - {click: '🇭🇹'}
+      # 第 3 行
+      - {click: '🇭🇺'}
+      - {click: '🇮🇩'}
+      - {click: '🇮🇪'}
+      - {click: '🇮🇱'}
+      - {click: '🇮🇲'}
+      - {click: '🇮🇳'}
+      - {click: '🇮🇴'}
+      - {click: '🇮🇶'}
+      - {click: '🇮🇷'}
+      - {click: '🇮🇸'}
+      # 第 4 行
+      - {click: '🇮🇹'}
+      - {click: '🇯🇪'}
+      - {click: '🇯🇲'}
+      - {click: '🇯🇴'}
+      - {click: '🇯🇵'}
+      - {click: '🇰🇪'}
+      - {click: '🇰🇬'}
+      - {click: '🇰🇭'}
+      - {click: '🇰🇮'}
+      - {click: '🇰🇲'}
+      # 第 5 行
+      - {click: '🇰🇳'}
+      - {click: '🇰🇵'}
+      - {click: '🇰🇷'}
+      - {click: '🇰🇼'}
+      - {click: '🇰🇾'}
+      - {click: '🇰🇿'}
+      - {click: '🇱🇦'}
+      - {click: '🇱🇧'}
+      - {click: '🇱🇨'}
+      - {click: '🇱🇮'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  flag_4:
+    author: EwenLai
+    name: 旗帜键盘（4）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1, key_back_color: tag_color}
+      - {label: '上页', click: Keyboard_flag_3, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_flag_5, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🇱🇰'}
+      - {click: '🇱🇷'}
+      - {click: '🇱🇸'}
+      - {click: '🇱🇹'}
+      - {click: '🇱🇺'}
+      - {click: '🇱🇻'}
+      - {click: '🇱🇾'}
+      - {click: '🇲🇦'}
+      - {click: '🇲🇨'}
+      - {click: '🇲🇩'}
+      # 第 3 行
+      - {click: '🇲🇪'}
+      - {click: '🇲🇬'}
+      - {click: '🇲🇭'}
+      - {click: '🇲🇰'}
+      - {click: '🇲🇱'}
+      - {click: '🇲🇲'}
+      - {click: '🇲🇳'}
+      - {click: '🇲🇴'}
+      - {click: '🇲🇵'}
+      - {click: '🇲🇷'}
+      # 第 4 行
+      - {click: '🇲🇸'}
+      - {click: '🇲🇹'}
+      - {click: '🇲🇺'}
+      - {click: '🇲🇻'}
+      - {click: '🇲🇼'}
+      - {click: '🇲🇽'}
+      - {click: '🇲🇾'}
+      - {click: '🇲🇿'}
+      - {click: '🇳🇦'}
+      - {click: '🇳🇪'}
+      # 第 5 行
+      - {click: '🇳🇫'}
+      - {click: '🇳🇬'}
+      - {click: '🇳🇮'}
+      - {click: '🇳🇱'}
+      - {click: '🇳🇴'}
+      - {click: '🇳🇵'}
+      - {click: '🇳🇷'}
+      - {click: '🇳🇺'}
+      - {click: '🇳🇿'}
+      - {click: '🇴🇲'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  flag_5:
+    author: EwenLai
+    name: 旗帜键盘（5）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1, key_back_color: tag_color}
+      - {label: '上页', click: Keyboard_flag_4, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_flag_6, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🇵🇦'}
+      - {click: '🇵🇪'}
+      - {click: '🇵🇫'}
+      - {click: '🇵🇬'}
+      - {click: '🇵🇭'}
+      - {click: '🇵🇰'}
+      - {click: '🇵🇱'}
+      - {click: '🇵🇳'}
+      - {click: '🇵🇷'}
+      - {click: '🇵🇸'}
+      # 第 3 行
+      - {click: '🇵🇹'}
+      - {click: '🇵🇼'}
+      - {click: '🇵🇾'}
+      - {click: '🇶🇦'}
+      - {click: '🇷🇴'}
+      - {click: '🇷🇸'}
+      - {click: '🇷🇺'}
+      - {click: '🇷🇼'}
+      - {click: '🇸🇦'}
+      - {click: '🇸🇧'}
+      # 第 4 行
+      - {click: '🇸🇨'}
+      - {click: '🇸🇩'}
+      - {click: '🇸🇪'}
+      - {click: '🇸🇬'}
+      - {click: '🇸🇮'}
+      - {click: '🇸🇰'}
+      - {click: '🇸🇱'}
+      - {click: '🇸🇲'}
+      - {click: '🇸🇳'}
+      - {click: '🇸🇴'}
+      # 第 5 行
+      - {click: '🇸🇷'}
+      - {click: '🇸🇸'}
+      - {click: '🇸🇹'}
+      - {click: '🇸🇻'}
+      - {click: '🇸🇽'}
+      - {click: '🇸🇾'}
+      - {click: '🇸🇿'}
+      - {click: '🇹🇨'}
+      - {click: '🇹🇩'}
+      - {click: '🇹🇬'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  flag_6:
+    author: EwenLai
+    name: 旗帜键盘（6）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1}
+      - {label: '🌼', click: Keyboard_life_1}
+      - {label: '🎂', click: Keyboard_party_1}
+      - {label: '🚖', click: Keyboard_tour_1}
+      - {label: '🎉', click: Keyboard_activity_1}
+      - {label: '🔌', click: Keyboard_technology_1}
+      - {label: '🔶', click: Keyboard_other_1}
+      - {label: '🇨🇳', click: Keyboard_flag_1, key_back_color: tag_color}
+      - {label: '上页', click: Keyboard_flag_5, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_flag_1, key_text_size: "14"}
+      # 第 2 行
+      - {click: '🇹🇭'}
+      - {click: '🇹🇯'}
+      - {click: '🇹🇰'}
+      - {click: '🇹🇱'}
+      - {click: '🇹🇲'}
+      - {click: '🇹🇳'}
+      - {click: '🇹🇴'}
+      - {click: '🇹🇷'}
+      - {click: '🇹🇹'}
+      - {click: '🇹🇻'}
+      # 第 3 行
+      - {click: '🇹🇼'}
+      - {click: '🇹🇿'}
+      - {click: '🇺🇦'}
+      - {click: '🇺🇬'}
+      - {click: '🇺🇸'}
+      - {click: '🇺🇾'}
+      - {click: '🇺🇿'}
+      - {click: '🇻🇦'}
+      - {click: '🇻🇨'}
+      - {click: '🇻🇪'}
+      # 第 4 行
+      - {click: '🇻🇬'}
+      - {click: '🇻🇮'}
+      - {click: '🇻🇳'}
+      - {click: '🇻🇺'}
+      - {click: '🇼🇸'}
+      - {click: '🇾🇪'}
+      - {click: '🇿🇦'}
+      - {click: '🇿🇲'}
+      - {click: '🇿🇼'}
+      - {width: 10}
+      # 第 5 行
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      - {width: 10}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  emoticon_happy:
+    author: EwenLai
+    name: 颜文字键盘-开心
+    ascii_mode: 1
+    width: 25
+    height: *emoticon
+    keys:
+      # 第 1 行
+      - {click: Keyboard_emoticon_happy, width: 16.7, key_text_size: "16", key_back_color: tag_color}
+      - {click: Keyboard_emoticon_fond, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_astonished, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_impotent, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_sad, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_mad, width: 16.5, key_text_size: "16"}
+      # 第 2 行
+      - {click: "^_^", key_text_size: "14"}
+      - {click: "^ω^", key_text_size: "14"}
+      - {click: "^o^", key_text_size: "14"}
+      - {click: "~\\(≧▽≦)/~", key_text_size: "14"}
+      # 第 3 行
+      - {click: "*^_^*", key_text_size: "14"}
+      - {click: "↖(^ω^)↗", key_text_size: "14"}
+      - {click: "(^o^)／", key_text_size: "14"}
+      - {click: "(=^▽^=)", key_text_size: "14"}
+      # 第 4 行
+      - {click: "=^_^=", key_text_size: "14"}
+      - {click: "(*^ω^*)", key_text_size: "14"}
+      - {click: "٩(๑^o^๑)۶", key_text_size: "14"}
+      - {click: "o(￣▽￣)o", key_text_size: "14"}
+      # 第 5 行
+      - {click: "Y(^_^)Y", key_text_size: "14"}
+      - {click: "٩( 'ω' )و", key_text_size: "14"}
+      - {click: "╰(*´︶`*)╯", key_text_size: "14"}
+      - {click: "*罒▽罒*", key_text_size: "14"}
+      # 第 6 行
+      - {click: "ヾ ^_^♪", key_text_size: "14"}
+      - {click: "=￣ω￣=", key_text_size: "14"}
+      - {click: "︿(￣︶￣)︿", key_text_size: "14"}
+      - {click: "(´▽｀)ノ♪", key_text_size: "14"}
+      # 第 7 行
+      - {click: "乁( ˙ ω˙乁)", key_text_size: "14"}
+      - {click: "✧*｡٩(ˊωˋ*)و✧*｡", key_text_size: "10"}
+      - {click: "～(￣▽￣～)(～￣▽￣)～", width: 50, key_text_size: "14"}
+      # 第 8 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  emoticon_fond:
+    author: EwenLai
+    name: 颜文字键盘-喜欢
+    ascii_mode: 1
+    width: 25
+    height: *emoticon
+    keys:
+      # 第 1 行
+      - {click: Keyboard_emoticon_happy, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_fond, width: 16.7, key_text_size: "16", key_back_color: tag_color}
+      - {click: Keyboard_emoticon_astonished, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_impotent, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_sad, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_mad, width: 16.5, key_text_size: "16"}
+      # 第 2 行
+      - {click: "QwQ", key_text_size: "14"}
+      - {click: "(●—●)", key_text_size: "14"}
+      - {click: "(๑• . •๑)", key_text_size: "14"}
+      - {click: "ヾ(≧O≦)〃嗷~", key_text_size: "12"}
+      # 第 3 行
+      - {click: "罒ω罒", key_text_size: "14"}
+      - {click: "(｡ì _ í｡)", key_text_size: "14"}
+      - {click: "(๑•ี_เ•ี๑)", key_text_size: "14"}
+      - {click: "ㄟ(≧◇≦)ㄏ", key_text_size: "14"}
+      # 第 4 行
+      - {click: "(*/ω＼*)", key_text_size: "14"}
+      - {click: "●▽●", key_text_size: "14"}
+      - {click: "٩(๑òωó๑)۶", key_text_size: "14"}
+      - {click: "✺◟(∗❛ัᴗ❛ั∗)◞✺", key_text_size: "12"}
+      # 第 5 行
+      - {click: "( σ'ω')σ", key_text_size: "14"}
+      - {click: "♡＾▽＾♡", key_text_size: "14"}
+      - {click: "(๑•̀ㅂ•́)و✧", key_text_size: "14"}
+      - {click: "(ง •̀_•́)ง", key_text_size: "14"}
+      # 第 6 行
+      - {click: "(｡･ω･｡)ﾉ♡", key_text_size: "14"}
+      - {click: "(☆_☆)", key_text_size: "14"}
+      - {click: "(๑°3°๑)", key_text_size: "14"}
+      - {click: "_(•̀ω•́ 」∠)_", key_text_size: "14"}
+      # 第 7 行
+      - {click: "♪～(´ε｀　)", key_text_size: "14"}
+      - {click: "～(^з^)-☆", key_text_size: "14"}
+      - {click: "(´∀｀)♡", key_text_size: "14"}
+      - {click: "ლ(´ڡ`ლ)", key_text_size: "14"}
+      # 第 8 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  emoticon_astonished:
+    author: EwenLai
+    name: 颜文字键盘-惊讶
+    ascii_mode: 1
+    width: 25
+    height: *emoticon
+    keys:
+      # 第 1 行
+      - {click: Keyboard_emoticon_happy, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_fond, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_astonished, width: 16.7, key_text_size: "16", key_back_color: tag_color}
+      - {click: Keyboard_emoticon_impotent, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_sad, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_mad, width: 16.5, key_text_size: "16"}
+      # 第 2 行
+      - {click: "⊙_⊙", key_text_size: "14"}
+      - {click: "d(ŐдŐ๑)", key_text_size: "14"}
+      - {click: "Σ( ° △ °|||)︴", key_text_size: "14"}
+      - {click: "(((φ(◎ロ◎;)φ)))", key_text_size: "10"}
+      # 第 3 行
+      - {click: "⊙▽⊙", key_text_size: "14"}
+      - {click: "(๑ŐдŐ)b", key_text_size: "14"}
+      - {click: "╭(°A°`)╮", key_text_size: "14"}
+      - {click: "(๑òᆺó๑)", key_text_size: "14"}
+      # 第 4 行
+      - {click: "⊙ω⊙", key_text_size: "14"}
+      - {click: "Σ(っ °Д °;)っ", key_text_size: "14"}
+      - {click: " (ﾟДﾟ≡ﾟдﾟ)!?", key_text_size: "14"}
+      - {click: "( *・ω・)✄╰ひ╯", key_text_size: "10"}
+      # 第 5 行
+      - {click: "(⊙x⊙;)", key_text_size: "14"}
+      - {click: "┌(。Д。)┐", key_text_size: "14"}
+      - {click: "(°ー°〃)", key_text_size: "14"}
+      - {click: "备用", key_text_size: "14"}
+      # 第 6 行
+      - {click: "︽⊙_⊙︽", key_text_size: "14"}
+      - {click: "!!!∑(°Д°ノ)ノ", key_text_size: "14"}
+      - {click: "(๑ŐдŐ)b☆d(ŐдŐ๑)", width: 50, key_text_size: "14"}
+      # 第 7 行
+      - {click: "Σ⊙▃⊙川", key_text_size: "14"}
+      - {click: "ヽ(*。>Д<)o゜", key_text_size: "14"}
+      - {click: "━((*′д｀)爻(′д｀*))━!!!!", width: 50, key_text_size: "14"}
+      # 第 8 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  emoticon_impotent:
+    author: EwenLai
+    name: 颜文字键盘-无奈
+    ascii_mode: 1
+    width: 25
+    height: *emoticon
+    keys:
+      # 第 1 行
+      - {click: Keyboard_emoticon_happy, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_fond, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_astonished, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_impotent, width: 16.7, key_text_size: "16", key_back_color: tag_color}
+      - {click: Keyboard_emoticon_sad, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_mad, width: 16.5, key_text_size: "16"}
+      # 第 2 行
+      - {click: "=_=", key_text_size: "14"}
+      - {click: "╮(╯_╰)╭", key_text_size: "14"}
+      - {click: "（︶︿︶）", key_text_size: "14"}
+      - {click: "_(:з」∠)_", key_text_size: "14"}
+      # 第 3 行
+      - {click: "@_@", key_text_size: "14"}
+      - {click: "╮(╯▽╰)╭", key_text_size: "14"}
+      - {click: "(＠￣ー￣＠)", key_text_size: "14"}
+      - {click: "_(:3」∠❀)_", key_text_size: "14"}
+      # 第 4 行
+      - {click: "눈_눈", key_text_size: "14"}
+      - {click: "╭(╯ε╰)╮", key_text_size: "14"}
+      - {click: "(ー_ー)!!", key_text_size: "14"}
+      - {click: "_(:D)∠)_", key_text_size: "14"}
+      # 第 5 行
+      - {click: "o_O", key_text_size: "14"}
+      - {click: "╭(╯^╰)╮", key_text_size: "14"}
+      - {click: "(；一_一)", key_text_size: "14"}
+      - {click: "´_>`", key_text_size: "14"}
+      # 第 6 行
+      - {click: "-_-# ", key_text_size: "14"}
+      - {click: "┑(￣Д ￣)┍", key_text_size: "14"}
+      - {click: "≡￣﹏￣≡", key_text_size: "14"}
+      - {click: "○|￣|_", key_text_size: "14"}
+      # 第 7 行
+      - {click: "-_-||", key_text_size: "14"}
+      - {click: "ㄟ( ▔, ▔ )ㄏ", key_text_size: "14"}
+      - {click: "( ＿ ＿)ノ｜壁", key_text_size: "14"}
+      - {click: "▄█▀█●", key_text_size: "14"}
+      # 第 8 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  emoticon_sad:
+    author: EwenLai
+    name: 颜文字键盘-伤心
+    ascii_mode: 1
+    width: 25
+    height: *emoticon
+    keys:
+      # 第 1 行
+      - {click: Keyboard_emoticon_happy, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_fond, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_astonished, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_impotent, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_sad, width: 16.7, key_text_size: "16", key_back_color: tag_color}
+      - {click: Keyboard_emoticon_mad, width: 16.5, key_text_size: "16"}
+      # 第 2 行
+      - {click: "(＞﹏＜)", key_text_size: "14"}
+      - {click: "T_T", key_text_size: "14"}
+      - {click: "⊙︿⊙", key_text_size: "14"}
+      - {click: "〒▽〒", key_text_size: "14"}
+      # 第 3 行
+      - {click: "⊙﹏⊙", key_text_size: "14"}
+      - {click: "π_π", key_text_size: "14"}
+      - {click: "(｡•́︿•̀｡)", key_text_size: "14"}
+      - {click: "(ToT)/~~~", key_text_size: "14"}
+      # 第 4 行
+      - {click: "╯﹏╰", key_text_size: "14"}
+      - {click: "ಥ_ಥ", key_text_size: "14"}
+      - {click: "(╥╯^╰╥)", key_text_size: "14"}
+      - {click: "(〃′o`)", key_text_size: "14"}
+      # 第 5 行
+      - {click: "●﹏●", key_text_size: "14"}
+      - {click: "( •̥́ ˍ •̀ू )", key_text_size: "14"}
+      - {click: "(つд⊂)", key_text_size: "14"}
+      - {click: "心塞(´-ωก`)", key_text_size: "14"}
+      # 第 6 行
+      - {click: "(╥﹏╥)", key_text_size: "14"}
+      - {click: "┭┮﹏┭┮", key_text_size: "14"}
+      - {click: "（；´д｀）ゞ", key_text_size: "14"}
+      - {click: "(´;︵;`)", key_text_size: "14"}
+      # 第 7 行
+      - {click: "(。﹏。)", key_text_size: "14"}
+      - {click: "┗( T﹏T )┛", key_text_size: "14"}
+      - {click: "QAQ", key_text_size: "14"}
+      - {click: "ヘ(_ _ヘ)", key_text_size: "14"}
+      # 第 8 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  emoticon_mad:
+    author: EwenLai
+    name: 颜文字键盘-生气
+    ascii_mode: 1
+    width: 25
+    height: *emoticon
+    keys:
+      # 第 1 行
+      - {click: Keyboard_emoticon_happy, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_fond, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_astonished, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_impotent, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_sad, width: 16.7, key_text_size: "16"}
+      - {click: Keyboard_emoticon_mad, width: 16.5, key_text_size: "16", key_back_color: tag_color}
+      # 第 2 行
+      - {click: "╰（‵□′）╯", key_text_size: "14"}
+      - {click: "(*￣︿￣)", key_text_size: "14"}
+      - {click: ">o<", key_text_size: "14"}
+      - {click: "(-`ェ´-怒)", key_text_size: "14"}
+      # 第 3 行
+      - {click: "ヽ(‘⌒´メ)ノ", key_text_size: "14"}
+      - {click: "(*｀Ω´*)v", key_text_size: "14"}
+      - {click: "(｡•ˇ‸ˇ•｡)", key_text_size: "14"}
+      - {click: "(怒｀Д´怒)", key_text_size: "14"}
+      # 第 4 行
+      - {click: "٩(๑`^´๑)۶", key_text_size: "14"}
+      - {click: "(;｀O´)o", key_text_size: "14"}
+      - {click: "╰_╯", key_text_size: "14"}
+      - {click: "(# ｀皿´)<怒怒怒!!!", key_text_size: "10"}
+      # 第 5 行
+      - {click: "<(｀^´)>", key_text_size: "14"}
+      - {click: "（｀Δ´）！", key_text_size: "14"}
+      - {click: "ψ(｀∇´)ψ", key_text_size: "14"}
+      - {click: "(；′⌒`)", key_text_size: "14"}
+      # 第 6 行
+      - {click: "s(・｀ヘ´・;)ゞ", key_text_size: "12"}
+      - {click: "(▼皿▼# )", key_text_size: "14"}
+      - {click: "￣へ￣", key_text_size: "14"}
+      - {click: "←_←", key_text_size: "14"}
+      # 第 7 行
+      - {click: "（╯‵□′）╯︵┴─┴", key_text_size: "9"}
+      - {click: "（▼へ▼メ）", key_text_size: "14"}
+      - {click: "☄ฺ(◣д◢)☄ฺ", key_text_size: "14"}
+      - {click: "→_→", key_text_size: "14"}
+      # 第 8 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  serial_number_1:
+    author: EwenLai
+    name: 序号键盘（1）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {click: 佰}
+      - {click: 仟}
+      - {click: 萬}
+      - {click: 億}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {label: '上页', click: Keyboard_serial_number_2, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_serial_number_2, key_text_size: "14"}
+      # 第 2 行
+      - {click: 壹}
+      - {click: 贰}
+      - {click: 叁}
+      - {click: 肆}
+      - {click: 伍}
+      - {click: 陆}
+      - {click: 柒}
+      - {click: 捌}
+      - {click: 玖}
+      - {click: 拾}
+      # 第 3 行
+      - {click: ①}
+      - {click: ②}
+      - {click: ③}
+      - {click: ④}
+      - {click: ⑤}
+      - {click: ⑥}
+      - {click: ⑦}
+      - {click: ⑧}
+      - {click: ⑨}
+      - {click: ⑩}
+      # 第 4 行
+      - {click: ❶}
+      - {click: ❷}
+      - {click: ❸}
+      - {click: ❹}
+      - {click: ❺}
+      - {click: ❻}
+      - {click: ❼}
+      - {click: ❽}
+      - {click: ❾}
+      - {click: ❿}
+      # 第 5 行
+      - {click: ⑴}
+      - {click: ⑵}
+      - {click: ⑶}
+      - {click: ⑷}
+      - {click: ⑸}
+      - {click: ⑹}
+      - {click: ⑺}
+      - {click: ⑻}
+      - {click: ⑼}
+      - {click: ⑽}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  serial_number_2:
+    author: EwenLai
+    name: 序号键盘（2）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {click: Ⅺ}
+      - {click: Ⅻ}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {label: '上页', click: Keyboard_serial_number_1, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_serial_number_1, key_text_size: "14"}
+      # 第 2 行
+      - {click: Ⅰ}
+      - {click: Ⅱ}
+      - {click: Ⅲ}
+      - {click: Ⅳ}
+      - {click: Ⅴ}
+      - {click: Ⅵ}
+      - {click: Ⅶ}
+      - {click: Ⅷ}
+      - {click: Ⅸ}
+      - {click: Ⅹ}
+      # 第 3 行
+      - {click: ⅰ}
+      - {click: ⅱ}
+      - {click: ⅲ}
+      - {click: ⅳ}
+      - {click: ⅴ}
+      - {click: ⅵ}
+      - {click: ⅶ}
+      - {click: ⅷ}
+      - {click: ⅸ}
+      - {click: ⅹ}
+      # 第 4 行
+      - {click: ⒈}
+      - {click: ⒉}
+      - {click: ⒊}
+      - {click: ⒋}
+      - {click: ⒌}
+      - {click: ⒍}
+      - {click: ⒎}
+      - {click: ⒏}
+      - {click: ⒐}
+      - {click: ⒑}
+      # 第 5 行
+      - {click: ㈠}
+      - {click: ㈡}
+      - {click: ㈢}
+      - {click: ㈣}
+      - {click: ㈤}
+      - {click: ㈥}
+      - {click: ㈦}
+      - {click: ㈧}
+      - {click: ㈨}
+      - {click: ㈩}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  subscript_1:
+    author: EwenLai
+    name: 角标键盘（1）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {click: ⁰}
+      - {click: ¹}
+      - {click: ²}
+      - {click: ³}
+      - {click: ⁴}
+      - {click: ⁵}
+      - {click: ⁶}
+      - {click: ⁷}
+      - {label: '上页', click: Keyboard_subscript_2, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_subscript_2, key_text_size: "14"}
+      # 第 2 行
+      - {click: ⁸}
+      - {click: ⁹}
+      - {click: º}
+      - {click: ⁱ}
+      - {click: ⁺}
+      - {click: ⁻}
+      - {click: ⁼}
+      - {click: ⁽}
+      - {click: ⁾}
+      - {click: ˣ}
+      # 第 3 行
+      - {click: ʸ}
+      - {click: ⁿ}
+      - {click: ᶻ}
+      - {click: ˢ}
+      - {click: ₀}
+      - {click: ₁}
+      - {click: ₂}
+      - {click: ₃}
+      - {click: ₄}
+      - {click: ₅}
+      # 第 4 行
+      - {click: ₆}
+      - {click: ₇}
+      - {click: ₈}
+      - {click: ₉}
+      - {click: ₊}
+      - {click: ₋}
+      - {click: ₌}
+      - {click: ₍}
+      - {click: ₎}
+      - {click: ₐ}
+      # 第 5 行
+      - {click: ₑ}
+      - {click: ₒ}
+      - {click: ₓ}
+      - {click: ᵧ}
+      - {click: ₔ}
+      - {click: ᴬ}
+      - {click: ᴮ}
+      - {click: ᶜ}
+      - {click: ᴰ}
+      - {click: ᴱ}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  subscript_2:
+    author: EwenLai
+    name: 角标键盘（2）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {click: ᶠ}
+      - {click: ᴳ}
+      - {click: ᴴ}
+      - {click: ᴵ}
+      - {click: ᴶ}
+      - {click: ᴷ}
+      - {click: ᴸ}
+      - {click: ᴹ}
+      - {label: '上页', click: Keyboard_subscript_1, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_subscript_1, key_text_size: "14"}
+      # 第 2 行
+      - {click: ᴺ}
+      - {click: ᴼ}
+      - {click: ᴾ}
+      - {click: ᶞ}
+      - {click: ᴿ}
+      - {click: ᵀ}
+      - {click: ᵁ}
+      - {click: ᵛ}
+      - {click: ᵂ}
+      - {click: ᵃ}
+      # 第 3 行
+      - {click: ᵇ}
+      - {click: ᶜ}
+      - {click: ᵈ}
+      - {click: ᵉ}
+      - {click: ᶠ}
+      - {click: ᵍ}
+      - {click: ʰ}
+      - {click: ⁱ}
+      - {click: ʲ}
+      - {click: ᵏ}
+      # 第 4 行
+      - {click: ˡ}
+      - {click: ᵐ}
+      - {click: ⁿ}
+      - {click: ᵒ}
+      - {click: ᵖ}
+      - {click: ʳ}
+      - {click: ˢ}
+      - {click: ᵗ}
+      - {click: ᵘ}
+      - {click: ᵛ}
+      # 第 5 行
+      - {click: ʷ}
+      - {click: ˣ}
+      - {click: ʸ}
+      - {click: ᶻ}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_special_symbol, width: 14.2, key_text_size: "14"}
+
+  special_symbol_1:
+    author: EwenLai
+    name: 特殊符号键盘（1）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {click: '△'}
+      - {click: '▽'}
+      - {click: '○'}
+      - {click: '◇'}
+      - {click: '□'}
+      - {click: '☆'}
+      - {click: '▷'}
+      - {click: '◁'}
+      - {label: '上页', click: Keyboard_special_symbol_5, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_special_symbol_2, key_text_size: "14"}
+      # 第 2 行
+      - {click: '♤'}
+      - {click: '♡'}
+      - {click: '♢'}
+      - {click: '♧'}
+      - {click: '▲'}
+      - {click: '▼'}
+      - {click: '●'}
+      - {click: '◆'}
+      - {click: '■'}
+      - {click: '★'}
+      # 第 3 行
+      - {click: '▶'}
+      - {click: '◀'}
+      - {click: '♠'}
+      - {click: '♥'}
+      - {click: '♦'}
+      - {click: '♣'}
+      - {click: '囍'}
+      - {click: '☼'}
+      - {click: '☽'}
+      - {click: '☺'}
+      # 第 4 行
+      - {click: '◐'}
+      - {click: '☑'}
+      - {click: '√'}
+      - {click: '✔'}
+      - {click: '㏂'}
+      - {click: '☀'}
+      - {click: '☾'}
+      - {click: '♂'}
+      - {click: '☹'}
+      - {click: '◑'}
+      # 第 5 行
+      - {click: '×'}
+      - {click: '✘'}
+      - {click: '☚'}
+      - {click: '☛'}
+      - {click: '㏘'}
+      - {click: '▪'}
+      - {click: '•'}
+      - {click: '‥'}
+      - {click: '…'}
+      - {click: '∷'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.2, key_text_size: "14"}
+
+  special_symbol_2:
+    author: EwenLai
+    name: 特殊符号键盘（2）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {click: '※'}
+      - {click: '░'}
+      - {click: '▒'}
+      - {click: '▓'}
+      - {click: '▁'}
+      - {click: '▂'}
+      - {click: '▃'}
+      - {click: '▄'}
+      - {label: '上页', click: Keyboard_special_symbol_1, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_special_symbol_3, key_text_size: "14"}
+      # 第 2 行
+      - {click: '▅'}
+      - {click: '▆'}
+      - {click: '▇'}
+      - {click: '█'}
+      - {click: '▏'}
+      - {click: '▎'}
+      - {click: '▍'}
+      - {click: '▌'}
+      - {click: '▋'}
+      - {click: '▊'}
+      # 第 3 行
+      - {click: '▉'}
+      - {click: '♩'}
+      - {click: '♪'}
+      - {click: '♫'}
+      - {click: '♬'}
+      - {click: '§'}
+      - {click: '〼'}
+      - {click: '◎'}
+      - {click: '¤'}
+      - {click: '۞'}
+      # 第 4 行
+      - {click: '℗'}
+      - {click: '®'}
+      - {click: '©'}
+      - {click: '♭'}
+      - {click: '♯'}
+      - {click: '♮'}
+      - {click: '‖'}
+      - {click: '¶'}
+      - {click: '卍'}
+      - {click: '卐'}
+      # 第 5 行
+      - {click: '▬'}
+      - {click: '〓'}
+      - {click: '℡'}
+      - {click: '™'}
+      - {click: '㏇'}
+      - {click: '☌'}
+      - {click: '☍'}
+      - {click: '☋'}
+      - {click: '☊'}
+      - {click: '㉿'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.2, key_text_size: "14"}
+
+  special_symbol_3:
+    author: EwenLai
+    name: 特殊符号键盘（3）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {click: '◮'}
+      - {click: '◪'}
+      - {click: '◔'}
+      - {click: '◕'}
+      - {click: '@'}
+      - {click: '㈱'}
+      - {click: '№'}
+      - {click: '♈'}
+      - {label: '上页', click: Keyboard_special_symbol_2, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_special_symbol_4, key_text_size: "14"}
+      # 第 2 行
+      - {click: '♉'}
+      - {click: '♊'}
+      - {click: '♋'}
+      - {click: '♌'}
+      - {click: '♎'}
+      - {click: '♏'}
+      - {click: '♐'}
+      - {click: '♑'}
+      - {click: '♓'}
+      - {click: '♒'}
+      # 第 3 行
+      - {click: '♍'}
+      - {click: '☴'}
+      - {click: '☲'}
+      - {click: '☷'}
+      - {click: '☳'}
+      - {click: '☯'}
+      - {click: '☱'}
+      - {click: '☶'}
+      - {click: '☵'}
+      - {click: '☰'}
+      # 第 4 行
+      - {click: '*'}
+      - {click: '＊'}
+      - {click: '✲'}
+      - {click: '❈'}
+      - {click: '❉'}
+      - {click: '✿'}
+      - {click: '❀'}
+      - {click: '❃'}
+      - {click: '❁'}
+      - {click: '☸'}
+      # 第 5 行
+      - {click: '✖'}
+      - {click: '✚'}
+      - {click: '✪'}
+      - {click: '❤'}
+      - {click: 'ღ'}
+      - {click: '❦'}
+      - {click: '❧'}
+      - {click: '₪'}
+      - {click: '✎'}
+      - {click: '✍'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.2, key_text_size: "14"}
+
+  special_symbol_4:
+    author: EwenLai
+    name: 特殊符号键盘（4）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {click: '✌'}
+      - {click: '✁'}
+      - {click: '✄'}
+      - {click: '☁'}
+      - {click: '☂'}
+      - {click: '☃'}
+      - {click: '☄'}
+      - {click: '♨'}
+      - {label: '上页', click: Keyboard_special_symbol_3, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_special_symbol_5, key_text_size: "14"}
+      # 第 2 行
+      - {click: '☇'}
+      - {click: '☈'}
+      - {click: '☡'}
+      - {click: '➷'}
+      - {click: '⊹'}
+      - {click: '✉'}
+      - {click: '☏'}
+      - {click: '☢'}
+      - {click: '☣'}
+      - {click: '☠'}
+      # 第 3 行
+      - {click: '☮'}
+      - {click: '〄'}
+      - {click: '➹'}
+      - {click: '☩'}
+      - {click: 'ஐ'}
+      - {click: '☎'}
+      - {click: '✈'}
+      - {click: '〠'}
+      - {click: '۩'}
+      - {click: '✙'}
+      # 第 4 行
+      - {click: '✟'}
+      - {click: '☤'}
+      - {click: '☥'}
+      - {click: '☦'}
+      - {click: '☧'}
+      - {click: '☨'}
+      - {click: '☫'}
+      - {click: '☬'}
+      - {click: '♟'}
+      - {click: '♙'}
+      # 第 5 行
+      - {click: '♜'}
+      - {click: '♖'}
+      - {click: '♞'}
+      - {click: '♘'}
+      - {click: '♝'}
+      - {click: '♗'}
+      - {click: '♛'}
+      - {click: '♕'}
+      - {click: '♚'}
+      - {click: '♔'}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.2, key_text_size: "14"}
+
+  special_symbol_5:
+    author: EwenLai
+    name: 特殊符号键盘（5）
+    ascii_mode: 0
+    width: 10
+    height: *emoji
+    keys:
+      # 第 1 行
+      - {click: '✁'}
+      - {click: '✄'}
+      - {click: '✃'}
+      - {click: '✕'}
+      - {click: '✘'}
+      - {click: '❥'}
+      - {click: '✪'}
+      - {click: '☒'}
+      - {label: '上页', click: Keyboard_special_symbol_4, key_text_size: "14"}
+      - {label: '下页', click: Keyboard_special_symbol_1, key_text_size: "14"}
+      # 第 2 行
+      - {click: '❅'}
+      - {click: '✣'}
+      - {click: '✰'}
+      - {click: '⚀'}
+      - {click: '⚁'}
+      - {click: '⚂'}
+      - {click: '⚃'}
+      - {click: '⚄'}
+      - {click: '⚅'}
+      - {click: ''}
+      # 第 3 行
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      # 第 4 行
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      # 第 5 行
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      - {click: ''}
+      # 第 6 行
+      - {click: Keyboard_default, height: *tag_h, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_chinese_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_english_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_expression_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_emoticon_symbol, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_serial_number, width: 14.3, key_text_size: "14"}
+      - {click: Keyboard_subscript, width: 14.2, key_text_size: "14"}
+
+  more_symbols:
+    author: "暖暖"
+    name: 各种符号
+    width: 12
+    height: *symbol
+    ascii_mode: 0
+    keys:
+      # 第 1 行
+      - {label: '🙂', click: Keyboard_character_1, width: 10}
+      - {label: '🌼', click: Keyboard_life_1, width: 10}
+      - {label: '🎂', click: Keyboard_party_1, width: 10}
+      - {label: '🚖', click: Keyboard_tour_1, width: 10}
+      - {label: '🎉', click: Keyboard_activity_1, width: 10}
+      - {label: '🔌', click: Keyboard_technology_1, width: 10}
+      - {label: '🔶', click: Keyboard_other_1, width: 10}
+      - {label: '🇨🇳', click: Keyboard_flag_1, width: 10}
+      - {label: 'TODO', width: 10}
+      - {label: '更多', click: Keyboard_more_symbols, width: 10, key_text_size: "14"}
+      # 第 2 行
+      - {click: 符号, long_click: 一, key_text_size: "16"}
+      - {click: 电脑, long_click: 二, key_text_size: "16"}
+      - {click: 天气, long_click: 三, key_text_size: "16"}
+      - {click: 音乐, long_click: 四, key_text_size: "16"}
+      - {click: 单位, long_click: 五, key_text_size: "16"}
+      - {click: 数学, long_click: 分数, key_text_size: "18", symbol_text_size: '8'}
+      - {click: 八卦, long_click: 易经, key_text_size: "18", symbol_text_size: '8'}
+      - {click: space, width: 16}
+      # 第 3 行
+      - {click: 星号, long_click: 六, key_text_size: "16"}
+      - {click: 方块, long_click: 七, key_text_size: "16"}
+      - {click: 几何, long_click: 八, key_text_size: "16"}
+      - {click: 箭头, long_click: 九, key_text_size: "16"}
+      - {click: 货币, long_click: 十, key_text_size: "16"}
+      - {click: 下标, long_click: 上标, key_text_size: "16", symbol_text_size: '8'}
+      - {click: 天体, long_click: 星座, key_text_size: "16", symbol_text_size: '8'}
+      - {label: '123', click: Keyboard_number, long_click: Schema_switchen, composing: Page_Up, width: 16}
+      # 第 4 行
+      - {click: 标点, long_click: 零, key_text_size: "16"}
+      - {click: 拼音, long_click: 竖标点, key_text_size: "16", symbol_text_size: '8'}
+      - {click: 注音, long_click: 偏旁, key_text_size: "16", symbol_text_size: '8'}
+      - {click: 韩文, long_click: 表情, key_text_size: "16", symbol_text_size: '8'}
+      - {click: 假名, long_click: 片假名, key_text_size: "16", symbol_text_size: '8'}
+      - {click: 麻将, long_click: 骰子, key_text_size: "16", symbol_text_size: '8'}
+      - {click: 象棋, long_click: 扑克, key_text_size: "16", symbol_text_size: '8'}
+      - {click: BackSpace, composing: Escape, width: 16}
+      # 第 5 行
+      - {click: Keyboard_default, composing: Page_Down, width: 16}
+      - {click: '备用', composing: Left, width: 16}
+      - {click: 希腊, long_click: 希腊大写, key_text_size: "16", symbol_text_size: '8'}
+      - {click: 罗马, long_click: 罗马大写, key_text_size: "16", symbol_text_size: '8'}
+      - {click: 俄语, long_click: 俄语大写, key_text_size: "16", symbol_text_size: '8'}
+      - {click: '备用', composing: Right, width: 16}
+      - {click: Return, long_click: Menu, width: 16}
+
+android_keys:
+  __include: trime:/android_keys
+
+preset_keys: # 按键预定义
+  # 安卓
+  BRIGHTNESS_DOWN: {label: 亮度-, send: BRIGHTNESS_DOWN}
+  BRIGHTNESS_UP: {label: 亮度+, send: BRIGHTNESS_UP}
+  CALCULATOR: {label: 计算机, send: CALCULATOR}
+  CALENDAR: {label: 日历, send: CALENDAR}
+  CONTACTS: {label: 电话簿, send: CONTACTS}
+  ENVELOPE: {label: 信箱, send: ENVELOPE}
+  EXPLORER: {label: 浏览器, send: EXPLORER}
+  MUSIC: {label: 音乐, send: MUSIC}
+  POWER: {label: 电源, send: POWER}
+  SEARCH: {label: 搜寻, send: Find}
+  SLEEP: {label: 休眠, send: SLEEP}
+  VOICE_ASSIST: {label: 语音, send: VOICE_ASSIST}
+  VOLUME_DOWN: {label: 音量-, send: VOLUME_DOWN}
+  VOLUME_UP: {label: 音量+, send: VOLUME_UP}
+  VOLUME_MUTE: {label: 静音, send: VOLUME_MUTE}
+  # 编辑
+  Shift_L: {label: ⇪, preview: ⇪, send: Shift_L}
+  Select: {label: 选择, preview: 选择, send: Shift_L, functional: false}
+  Hide: {label: 隐藏, send: BACK}
+  BackSpace_F: {label: 退格, send: BackSpace, preview: 退格, repeatable: true}
+  BackSpace: {label: 退格, send: BackSpace, preview: 退格, repeatable: true, functional: false}
+  Escape: {label: 取消, send: Escape, functional: false}
+  Insert: {label: 插入, send: Insert, functional: false}
+  Delete: {label: 删除, send: Delete, functional: false}
+  select_all: {label: 全选, send: Control+a, functional: false}
+  cut: {label: 剪切, send: Control+x, functional: false}
+  copy: {label: 复制, send: Control+c, functional: false}
+  paste: {label: 粘贴, send: Control+v, functional: false}
+  paste_text: {label: 贴上文本, send: Control+Shift+Alt+v} # >=Android 6.0
+  share_text: {label: 分享文本, send: Control+Alt+s} # >=Android 6.0
+  redo: {label: 重做, send: Control+y, functional: false} # >=Android 6.0
+  undo: {label: 撤销, send: Control+z, functional: false} # >=Android 6.0
+  Return_F: {label: 回车, preview: 回车, send: Return, repeatable: true}
+  Return: {label: 回车, preview: 回车, send: Return, repeatable: true, functional: false}
+  space: {send: space, functional: false}
+  Tab: {label: Tab, send: Tab, functional: false}
+  delimiter: {label: 分词, text: "'"}
+  # 光标移动
+  Home: {label: 行首, send: Home, functional: false}
+  End: {label: 行尾, send: End, functional: false}
+  Page_Up: {label: 上页, send: Page_Up, repeatable: true, functional: false}
+  Page_Down: {label: 下页, send: Page_Down, repeatable: true, functional: false}
+  Left: {label: '←', send: Left, repeatable: true, functional: false}
+  Down: {label: '↓', send: Down, repeatable: true, functional: false}
+  Up: {label: '↑', send: Up, repeatable: true, functional: false}
+  Right: {label: '→', send: Right, repeatable: true, functional: false}
+  Forward: {label: '⇦', send: Control+Left, repeatable: true, functional: false}
+  Backward: {label: '⇨', send: Control+Right, repeatable: true, functional: false}
+  # rime组合键
+  DeleteCandidate: {label: 删词, send: Control+Delete, functional: false}
+  # rime状态
+  Mode_switch: {toggle: ascii_mode, send: Mode_switch, states: [ 中文, 西文 ]}
+  Zenkaku_Hankaku: {toggle: full_shape, send: Mode_switch, states: [ 半角, 全角 ]}
+  Henkan: {toggle: simplification, send: Mode_switch, states: [ 汉字, 汉字 ]}
+  Charset_switch: {toggle: extended_charset, send: Mode_switch, states: [ 常用, 增广 ]}
+  Punct_switch: {toggle: ascii_punct, send: Mode_switch, states: [ 。，, ．， ]}
+  # trime设置
+  IME_switch: {label: 🌐, send: LANGUAGE_SWITCH} # 彈出對話框選擇輸入法
+  IME_last: {label: 上一输入法, send: LANGUAGE_SWITCH, select: .last} # 直接切換到上一輸入法
+  IME_next: {label: 下一输入法, send: LANGUAGE_SWITCH, select: .next} # 直接切換到下一輸入法
+  Keyboard_letter: {label: 字母, send: Eisu_toggle, select: default}
+  Keyboard_default: {label: 返回, send: Eisu_toggle, select: .default}
+  Keyboard_switch: {label: 键盘, send: Eisu_toggle, select: .next}
+  Keyboard_number: {label: 123, send: Eisu_toggle, select: number}
+  Keyboard_edit: {label: 编辑, send: Eisu_toggle, select: edit}
+  Keyboard_more_symbols: {label: 更多, send: Eisu_toggle, select: more_symbols}
+  Keyboard_next: {label: 后退, send: Eisu_toggle, select: .next}
+  Keyboard_last: {label: 后退, send: Eisu_toggle, select: .last}
+  Keyboard_last_lock: {label: 返回, send: Eisu_toggle, select: .last_lock} # 直接切換到下一键盘
+  Schema_switch: {label: 下一方案, send: Control+Shift+1}
+  Schema_Eng: {label: En, send: Control+Shift+0}
+  Theme_settings: {label: 主题, send: SETTINGS, option: "theme"}
+  Color_switch: {label: 配色, send: PROG_RED}
+  Help: {label: 说明, send: Help}
+  Info: {label: 关于, send: INFO}
+  Menu: {label: 菜单, send: Menu}
+  Settings: {label: 设置, send: SETTINGS}
+  # trime命令
+  Date: {label: 日期, send: function, command: date, option: "yyyy-MM-dd"}
+  Time: {label: 时间, send: function, command: date, option: "HH:mm:ss"}
+  DateTime: {label: 日期, send: function, command: date, option: "yyyy-MM-dd HH:mm:ss"}
+  TrimeApp: {label: 同文, send: function, command: run, option: "com.osfans.trime"} # 運行程序: run 包名
+  TrimeCmp: {label: 同文組件, send: function, command: run, option: "com.osfans.trime/.Pref"} # 運行程序指定組件: run 包名/組件名
+  Homepage: {label: 同文主頁, send: function, command: run, option: "https://github.com/osfans/trime"} # 查看網頁: run 網址
+  Wiki: {label: 維基, send: function, command: run, option: "https://zh.wikipedia.org/wiki/%s"} # 搜索網頁: %s或者%1$s爲當前字符
+  Google: {label: 谷歌, send: function, command: run, option: "https://www.google.com/search?q=%s"} # 搜索網頁: %s或者%1$s爲當前字符
+  MoeDict: {label: 萌典, send: function, command: run, option: "https://www.moedict.tw/%3$s"} # 搜索網頁: %3$s爲光標前字符
+  Baidu: {label: 百度搜索, send: function, command: run, option: "https://www.baidu.com/s?wd=%4$s"} # 搜索網頁: %4s爲光標前所有字符
+  Zdic: {label: 漢典, send: function, command: run, option: "http://www.zdic.net/sousuo/?q=%1$s"} # 搜索網頁: %s或者%1$s爲當前字符
+  Zdic2: {label: 漢典, send: function, command: run, option: "http://www.zdic.net/sousuo/?q=%2$s"} # 搜索網頁: %2$s爲當前輸入的編碼
+  WebSearch: {label: 搜索網頁, send: function, command: web_search, option: "%4$s"} # 搜索，其他view、dial、edit、search等intent，參考安卓的intent文檔：https://developer.android.com/reference/android/content/Intent.html
+  Schema_switchen_F: {label: EN, send: Control+Shift+5}
+  Schema_switchen: {label: EN, send: Control+Shift+5, functional: false}
+  Schema_switchcn: {label: 中文, send: Control+Shift+6, functional: false}
+  # -----键盘跳转----- #
+  # 符号键盘跳转
+  Keyboard_symbol: {label: ⌘, send: Eisu_toggle, select: chinese_symbol_1}
+  Keyboard_chinese_symbol: {label: "中文", send: Eisu_toggle, select: chinese_symbol_1}
+  Keyboard_english_symbol: {label: "英文", send: Eisu_toggle, select: english_symbols}
+  Keyboard_expression_symbol: {label: "表情", send: Eisu_toggle, select: character_1}
+  Keyboard_emoticon_symbol: {label: "颜文", send: Eisu_toggle, select: emoticon_happy}
+  Keyboard_serial_number: {label: "序号", send: Eisu_toggle, select: serial_number_1}
+  Keyboard_subscript: {label: "角标", send: Eisu_toggle, select: subscript_1}
+  Keyboard_special_symbol: {label: "特殊", send: Eisu_toggle, select: special_symbol_1}
+  # 中文符号跳转
+  Keyboard_chinese_symbol_1: {label: '中文符号', send: Eisu_toggle, select: chinese_symbol_1}
+  Keyboard_chinese_symbol_2: {label: '中文符号', send: Eisu_toggle, select: chinese_symbol_2}
+  # 表情键盘
+  ## 表情键盘-人物跳转
+  Keyboard_character_1: {label: '🙂', send: Eisu_toggle, select: character_1}
+  Keyboard_character_2: {label: '🙂', send: Eisu_toggle, select: character_2}
+  Keyboard_character_3: {label: '🙂', send: Eisu_toggle, select: character_3}
+  Keyboard_character_4: {label: '🙂', send: Eisu_toggle, select: character_4}
+  Keyboard_character_5: {label: '🙂', send: Eisu_toggle, select: character_5}
+  Keyboard_character_6: {label: '🙂', send: Eisu_toggle, select: character_6}
+  ## 表情键盘-生命跳转
+  Keyboard_life_1: {label: '🌼', send: Eisu_toggle, select: life_1}
+  Keyboard_life_2: {label: '🌼', send: Eisu_toggle, select: life_2}
+  Keyboard_life_3: {label: '🌼', send: Eisu_toggle, select: life_3}
+  ## 表情键盘-聚会跳转
+  Keyboard_party_1: {label: '🎂', send: Eisu_toggle, select: party_1}
+  Keyboard_party_2: {label: '🎂', send: Eisu_toggle, select: party_2}
+  ## 表情键盘-旅行跳转
+  Keyboard_tour_1: {label: '🚖', send: Eisu_toggle, select: tour_1}
+  Keyboard_tour_2: {label: '🚖', send: Eisu_toggle, select: tour_2}
+  Keyboard_tour_3: {label: '🚖', send: Eisu_toggle, select: tour_3}
+  Keyboard_tour_4: {label: '🚖', send: Eisu_toggle, select: tour_4}
+  Keyboard_tour_5: {label: '🚖', send: Eisu_toggle, select: tour_5}
+  Keyboard_tour_6: {label: '🚖', send: Eisu_toggle, select: tour_6}
+  ## 表情键盘-活动跳转
+  Keyboard_activity_1: {label: '🎉', send: Eisu_toggle, select: activity_1}
+  Keyboard_activity_2: {label: '🎉', send: Eisu_toggle, select: activity_2}
+  ## 表情键盘-科技跳转
+  Keyboard_technology_1: {label: '🔌', send: Eisu_toggle, select: technology_1}
+  Keyboard_technology_2: {label: '🔌', send: Eisu_toggle, select: technology_2}
+  Keyboard_technology_3: {label: '🔌', send: Eisu_toggle, select: technology_3}
+  Keyboard_technology_4: {label: '🔌', send: Eisu_toggle, select: technology_4}
+  Keyboard_technology_5: {label: '🔌', send: Eisu_toggle, select: technology_5}
+  ## 表情键盘-其他跳转
+  Keyboard_other_1: {label: '🔶', send: Eisu_toggle, select: other_1}
+  Keyboard_other_2: {label: '🔶', send: Eisu_toggle, select: other_2}
+  Keyboard_other_3: {label: '🔶', send: Eisu_toggle, select: other_3}
+  Keyboard_other_4: {label: '🔶', send: Eisu_toggle, select: other_4}
+  ## 表情键盘-旗帜跳转
+  Keyboard_flag_1: {label: '🇨🇳', send: Eisu_toggle, select: flag_1}
+  Keyboard_flag_2: {label: '🇨🇳', send: Eisu_toggle, select: flag_2}
+  Keyboard_flag_3: {label: '🇨🇳', send: Eisu_toggle, select: flag_3}
+  Keyboard_flag_4: {label: '🇨🇳', send: Eisu_toggle, select: flag_4}
+  Keyboard_flag_5: {label: '🇨🇳', send: Eisu_toggle, select: flag_5}
+  Keyboard_flag_6: {label: '🇨🇳', send: Eisu_toggle, select: flag_6}
+  # 颜文字键盘跳转
+  Keyboard_emoticon_happy: {label: 开心, send: Eisu_toggle, select: emoticon_happy}
+  Keyboard_emoticon_fond: {label: 喜欢, send: Eisu_toggle, select: emoticon_fond}
+  Keyboard_emoticon_sad: {label: 伤心, send: Eisu_toggle, select: emoticon_sad}
+  Keyboard_emoticon_mad: {label: 生气, send: Eisu_toggle, select: emoticon_mad}
+  Keyboard_emoticon_astonished: {label: 惊讶, send: Eisu_toggle, select: emoticon_astonished}
+  Keyboard_emoticon_impotent: {label: 无奈, send: Eisu_toggle, select: emoticon_impotent}
+  # 序号键盘跳转
+  Keyboard_serial_number_1: {label: 序号, send: Eisu_toggle, select: serial_number_1}
+  Keyboard_serial_number_2: {label: 序号, send: Eisu_toggle, select: serial_number_2}
+  # 角标键盘跳转
+  Keyboard_subscript_1: {label: 角标, send: Eisu_toggle, select: subscript_1}
+  Keyboard_subscript_2: {label: 角标, send: Eisu_toggle, select: subscript_2}
+  # 特殊符号键盘跳转
+  Keyboard_special_symbol_1: {label: 特殊, send: Eisu_toggle, select: special_symbol_1}
+  Keyboard_special_symbol_2: {label: 特殊, send: Eisu_toggle, select: special_symbol_2}
+  Keyboard_special_symbol_3: {label: 特殊, send: Eisu_toggle, select: special_symbol_3}
+  Keyboard_special_symbol_4: {label: 特殊, send: Eisu_toggle, select: special_symbol_4}
+  Keyboard_special_symbol_5: {label: 特殊, send: Eisu_toggle, select: special_symbol_5}
+  # -----键盘跳转----- #
+  # 符号
+  符号: {text: '{Escape}/fh', label: 符号, functional: false}
+  电脑: {text: '{Escape}/dn', label: 电脑, functional: false}
+  象棋: {text: '{Escape}/xq', label: 象棋, functional: false}
+  麻将: {text: '{Escape}/mj', label: 麻将, functional: false}
+  骰子: {text: '{Escape}/sz', label: 骰子, functional: false}
+  扑克: {text: '{Escape}/pk', label: 扑克, functional: false}
+  天气: {text: '{Escape}/tq', label: 天气, functional: false}
+  音乐: {text: '{Escape}/yy', label: 音乐, functional: false}
+  八卦: {text: '{Escape}/bg', label: 八卦, functional: false}
+  易经: {text: '{Escape}/lssg', label: 易经, functional: false}
+  天体: {text: '{Escape}/tt', label: 天体, functional: false}
+  星座: {text: '{Escape}/xz', label: 星座, functional: false}
+  星号: {text: '{Escape}/xh', label: 星号, functional: false}
+  方块: {text: '{Escape}/fk', label: 方块, functional: false}
+  几何: {text: '{Escape}/jh', label: 几何, functional: false}
+  箭头: {text: '{Escape}/jt', label: 箭头, functional: false}
+  数学: {text: '{Escape}/sx', label: 数学, functional: false}
+  上标: {text: '{Escape}/sb', label: 上标, functional: false}
+  下标: {text: '{Escape}/xb', label: 下标, functional: false}
+  单位: {text: '{Escape}/dw', label: 单位, functional: false}
+  货币: {text: '{Escape}/hb', label: 货币, functional: false}
+  拼音: {text: '{Escape}/py', label: 拼音, functional: false}
+  注音: {text: '{Escape}/zy', label: 注音, functional: false}
+  假名: {text: '{Escape}/jm', label: 假名, functional: false}
+  片假名: {text: '{Escape}/pjm', label: 片假名, functional: false}
+  韩文: {text: '{Escape}/hw', label: 韩文, functional: false}
+  希腊: {text: '{Escape}/xl', label: 希腊, functional: false}
+  希腊大写: {text: '{Escape}/xld', label: 大写, functional: false}
+  罗马: {text: '{Escape}/lm', label: 罗马, functional: false}
+  罗马大写: {text: '{Escape}/lmd', label: 大写, functional: false}
+  俄语: {text: '{Escape}/ey', label: 俄语, functional: false}
+  俄语大写: {text: '{Escape}/eyd', label: 大写, functional: false}
+  表情: {text: '{Escape}/bq', label: 😁}
+  一: {text: '{Escape}/1', label: 1}
+  二: {text: '{Escape}/2', label: 2}
+  三: {text: '{Escape}/3', label: 3}
+  四: {text: '{Escape}/4', label: 4}
+  五: {text: '{Escape}/5', label: 5}
+  六: {text: '{Escape}/6', label: 6}
+  七: {text: '{Escape}/7', label: 7}
+  八: {text: '{Escape}/8', label: 8}
+  九: {text: '{Escape}/9', label: 9}
+  零: {text: '{Escape}/0', label: 0}
+  十: {text: '{Escape}/10', label: 10}
+  分数: {text: '{Escape}/fs', label: 分数, functional: false}
+  标点: {text: '{Escape}/bd', label: 标点, functional: false}
+  偏旁: {text: '{Escape}/pp', label: 偏旁, functional: false}
+  竖标点: {text: '{Escape}/bdz', label: 竖标, functional: false}
