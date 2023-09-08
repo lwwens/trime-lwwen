@@ -1,4 +1,7 @@
+distribution_code_name: Trime
+distribution_name: "同文输入法"
+distribution_version: 3.2.10
 install_time: "Mon Apr 13 08:52:35 2020"
-installation_id: "rime-lwwens-trime"
+installation_id: "trime-lwwens-oneplus_11"        # 同步时使用的唯一标识
 rime_version: 1.7.3
 update_time: "Tue Jan 31 15:56:09 2023"
